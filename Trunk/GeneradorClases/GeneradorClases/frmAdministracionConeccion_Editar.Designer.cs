@@ -68,7 +68,7 @@
             this.Controls.Add(this.administracionConeccion2);
             this.Controls.Add(this.btnGuardar);
             this.Name = "frmAdministracionConeccion_Editar";
-            this.Text = "frmAdministracionConeccion_Editar";
+            this.Text = "Edicion de Datos";
             this.ResumeLayout(false);
 
         }

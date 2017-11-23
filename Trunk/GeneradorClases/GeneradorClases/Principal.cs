@@ -109,5 +109,14 @@ namespace GeneradorClases
         {
 
         }
+
+        private void generarCodigosFunetesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGeneradorCodigos childForm = new frmGeneradorCodigos();
+            childForm.MdiParent = this;
+            childForm.Text = "Generador Codigos ";
+            childFormNumber++;
+            childForm.Show();
+        }
     }
 }

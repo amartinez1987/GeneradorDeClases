@@ -93,6 +93,18 @@
     <Compile Include="frmAdministracionConeccion_Nuevo.Designer.cs">
       <DependentUpon>frmAdministracionConeccion_Nuevo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEstadosPatron.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstadosPatron.Designer.cs">
+      <DependentUpon>frmEstadosPatron.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGeneradorCodigos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeneradorCodigos.Designer.cs">
+      <DependentUpon>frmGeneradorCodigos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListadoAdministracionConecciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdministracionConeccion_Nuevo.resx">
       <DependentUpon>frmAdministracionConeccion_Nuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEstadosPatron.resx">
+      <DependentUpon>frmEstadosPatron.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGeneradorCodigos.resx">
+      <DependentUpon>frmGeneradorCodigos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListadoAdministracionConecciones.resx">
       <DependentUpon>frmListadoAdministracionConecciones.cs</DependentUpon>

@@ -57,7 +57,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.administracionConeccion1);
             this.Name = "frmAdministracionConeccion_Nuevo";
-            this.Text = "frmAdministracionConeccion_Nuevo";
+            this.Text = "Ingreso de Datos";
             this.Load += new System.EventHandler(this.frmAdministracionConeccion_Nuevo_Load);
             this.ResumeLayout(false);
 

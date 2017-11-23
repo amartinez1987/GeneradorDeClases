@@ -16,3 +16,5 @@ C:\Users\amartinez\Desktop\GeneradoClases\GeneradorDeClases\Trunk\GeneradorClase
 C:\Users\amartinez\Desktop\GeneradoClases\GeneradorDeClases\Trunk\GeneradorClases\GeneradorClases\obj\Debug\GeneradorClases.csproj.GenerateResource.Cache
 C:\Users\amartinez\Desktop\GeneradoClases\GeneradorDeClases\Trunk\GeneradorClases\GeneradorClases\obj\Debug\GeneradorClases.exe
 C:\Users\amartinez\Desktop\GeneradoClases\GeneradorDeClases\Trunk\GeneradorClases\GeneradorClases\obj\Debug\GeneradorClases.pdb
+C:\Users\amartinez\Desktop\GeneradoClases\GeneradorDeClases\Trunk\GeneradorClases\GeneradorClases\obj\Debug\GeneradorClases.frmEstadosPatron.resources
+C:\Users\amartinez\Desktop\GeneradoClases\GeneradorDeClases\Trunk\GeneradorClases\GeneradorClases\obj\Debug\GeneradorClases.frmGeneradorCodigos.resources
