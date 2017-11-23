@@ -42,3 +42,8 @@ ALLOW_PAGE_LOCKS = ON,
 DATA_COMPRESSION = NONE )
  ON [PRIMARY]
 GO
+CREATE VIEW vSysDataBase
+as
+SELECT name, database_id, create_date  
+FROM sys.databases 
+where name not in('model','msdb','master','tempdb')

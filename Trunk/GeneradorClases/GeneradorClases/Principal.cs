@@ -21,7 +21,7 @@ namespace GeneradorClases
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            frmAdministracionConeccion_Nuevo childForm = new frmAdministracionConeccion_Nuevo();
+            frmListadoAdministracionConecciones childForm = new frmListadoAdministracionConecciones();
             childForm.MdiParent = this;
             childForm.Text = "Administracion Conecciones " ;
             childFormNumber++;

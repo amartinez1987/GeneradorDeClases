@@ -32,8 +32,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,17 +55,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="administracionConeccion.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Entity\Controller\ConecionServidorController.cs" />
+    <Compile Include="Entity\Controller\MetodosGeneralesController.cs" />
+    <Compile Include="Entity\Controller\vSysDataBaseController.cs" />
+    <Compile Include="Entity\Model\ConecionServidores.cs">
+      <DependentUpon>GeneradorCodigo.tt</DependentUpon>
     </Compile>
-    <Compile Include="administracionConeccion.Designer.cs">
-      <DependentUpon>administracionConeccion.cs</DependentUpon>
+    <Compile Include="Entity\Model\ConecionServidorViewModel.cs" />
+    <Compile Include="Entity\Model\GeneradorCodigo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneradorCodigo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model\GeneradorCodigo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneradorCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model\GeneradorCodigo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneradorCodigo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model\vSysDataBase.cs">
+      <DependentUpon>GeneradorCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model\vSysDataBaseViewModel.cs" />
+    <Compile Include="frmAdministracionConeccion_Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdministracionConeccion_Editar.Designer.cs">
+      <DependentUpon>frmAdministracionConeccion_Editar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdministracionConeccion_Nuevo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAdministracionConeccion_Nuevo.Designer.cs">
       <DependentUpon>frmAdministracionConeccion_Nuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoAdministracionConecciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoAdministracionConecciones.Designer.cs">
+      <DependentUpon>frmListadoAdministracionConecciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -64,8 +107,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="administracionConeccion.resx">
-      <DependentUpon>administracionConeccion.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdministracionConeccion_Editar.resx">
+      <DependentUpon>frmAdministracionConeccion_Editar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdministracionConeccion_Nuevo.resx">
+      <DependentUpon>frmAdministracionConeccion_Nuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoAdministracionConecciones.resx">
+      <DependentUpon>frmListadoAdministracionConecciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -79,6 +128,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Entity\Model\GeneradorCodigo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GeneradorCodigo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\Model\GeneradorCodigo.edmx.diagram">
+      <DependentUpon>GeneradorCodigo.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,6 +149,28 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibreriaControlesGeneradorCodigo\LibreriaControlesGeneradorCodigo.csproj">
+      <Project>{77F9E403-E18F-40BC-9D9C-3B60682E0969}</Project>
+      <Name>LibreriaControlesGeneradorCodigo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\Model\GeneradorCodigo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GeneradorCodigo.edmx</DependentUpon>
+      <LastGenOutput>GeneradorCodigo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\Model\GeneradorCodigo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GeneradorCodigo.edmx</DependentUpon>
+      <LastGenOutput>GeneradorCodigo.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
