@@ -42,17 +42,17 @@
             // 
             // txtContrasenaConeccion
             // 
-            this.txtContrasenaConeccion.Location = new System.Drawing.Point(195, 86);
+            this.txtContrasenaConeccion.Location = new System.Drawing.Point(195, 59);
             this.txtContrasenaConeccion.Name = "txtContrasenaConeccion";
             this.txtContrasenaConeccion.PasswordChar = '*';
             this.txtContrasenaConeccion.Size = new System.Drawing.Size(306, 20);
-            this.txtContrasenaConeccion.TabIndex = 19;
+            this.txtContrasenaConeccion.TabIndex = 2;
             this.txtContrasenaConeccion.UseSystemPasswordChar = true;
             // 
             // lblContrasenaConeccion
             // 
             this.lblContrasenaConeccion.AutoSize = true;
-            this.lblContrasenaConeccion.Location = new System.Drawing.Point(3, 86);
+            this.lblContrasenaConeccion.Location = new System.Drawing.Point(3, 59);
             this.lblContrasenaConeccion.Name = "lblContrasenaConeccion";
             this.lblContrasenaConeccion.Size = new System.Drawing.Size(186, 13);
             this.lblContrasenaConeccion.TabIndex = 18;
@@ -60,15 +60,15 @@
             // 
             // txtUsuarioConeccion
             // 
-            this.txtUsuarioConeccion.Location = new System.Drawing.Point(195, 59);
+            this.txtUsuarioConeccion.Location = new System.Drawing.Point(195, 32);
             this.txtUsuarioConeccion.Name = "txtUsuarioConeccion";
             this.txtUsuarioConeccion.Size = new System.Drawing.Size(306, 20);
-            this.txtUsuarioConeccion.TabIndex = 17;
+            this.txtUsuarioConeccion.TabIndex = 1;
             // 
             // lblUsuarioConeccion
             // 
             this.lblUsuarioConeccion.AutoSize = true;
-            this.lblUsuarioConeccion.Location = new System.Drawing.Point(3, 60);
+            this.lblUsuarioConeccion.Location = new System.Drawing.Point(3, 33);
             this.lblUsuarioConeccion.Name = "lblUsuarioConeccion";
             this.lblUsuarioConeccion.Size = new System.Drawing.Size(112, 13);
             this.lblUsuarioConeccion.TabIndex = 16;
@@ -77,15 +77,15 @@
             // cmbBaseDatos
             // 
             this.cmbBaseDatos.FormattingEnabled = true;
-            this.cmbBaseDatos.Location = new System.Drawing.Point(195, 112);
+            this.cmbBaseDatos.Location = new System.Drawing.Point(195, 109);
             this.cmbBaseDatos.Name = "cmbBaseDatos";
             this.cmbBaseDatos.Size = new System.Drawing.Size(306, 21);
-            this.cmbBaseDatos.TabIndex = 15;
+            this.cmbBaseDatos.TabIndex = 4;
             // 
             // lblBaseDatos
             // 
             this.lblBaseDatos.AutoSize = true;
-            this.lblBaseDatos.Location = new System.Drawing.Point(3, 112);
+            this.lblBaseDatos.Location = new System.Drawing.Point(3, 109);
             this.lblBaseDatos.Name = "lblBaseDatos";
             this.lblBaseDatos.Size = new System.Drawing.Size(77, 13);
             this.lblBaseDatos.TabIndex = 14;
@@ -93,15 +93,15 @@
             // 
             // txtNombreServidor
             // 
-            this.txtNombreServidor.Location = new System.Drawing.Point(195, 33);
+            this.txtNombreServidor.Location = new System.Drawing.Point(195, 85);
             this.txtNombreServidor.Name = "txtNombreServidor";
             this.txtNombreServidor.Size = new System.Drawing.Size(306, 20);
-            this.txtNombreServidor.TabIndex = 13;
+            this.txtNombreServidor.TabIndex = 3;
             // 
             // lblServidor
             // 
             this.lblServidor.AutoSize = true;
-            this.lblServidor.Location = new System.Drawing.Point(3, 33);
+            this.lblServidor.Location = new System.Drawing.Point(3, 85);
             this.lblServidor.Name = "lblServidor";
             this.lblServidor.Size = new System.Drawing.Size(103, 13);
             this.lblServidor.TabIndex = 12;
@@ -112,7 +112,7 @@
             this.txtNombreConeccion.Location = new System.Drawing.Point(195, 6);
             this.txtNombreConeccion.Name = "txtNombreConeccion";
             this.txtNombreConeccion.Size = new System.Drawing.Size(306, 20);
-            this.txtNombreConeccion.TabIndex = 11;
+            this.txtNombreConeccion.TabIndex = 0;
             // 
             // lblNombreConeccion
             // 
@@ -138,7 +138,7 @@
             this.Controls.Add(this.txtNombreConeccion);
             this.Controls.Add(this.lblNombreConeccion);
             this.Name = "AdministracionConeccion";
-            this.Size = new System.Drawing.Size(509, 138);
+            this.Size = new System.Drawing.Size(509, 140);
             this.ResumeLayout(false);
             this.PerformLayout();
 

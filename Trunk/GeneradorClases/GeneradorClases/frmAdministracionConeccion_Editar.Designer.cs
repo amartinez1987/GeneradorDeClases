@@ -50,6 +50,7 @@
             this.btnEditar.TabIndex = 5;
             this.btnEditar.Text = "Actualizar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // administracionConeccion2
             // 

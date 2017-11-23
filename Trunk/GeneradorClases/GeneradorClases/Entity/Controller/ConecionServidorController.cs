@@ -36,5 +36,41 @@ namespace GeneradorClases.Entity.Controller
             }
         }
 
+
+        public static void guardar(ConecionServidores model, ref string error)
+        {
+            using (MapWorldSystemEntities entity = new MapWorldSystemEntities())
+            {
+                entity.ConecionServidores.Add(model);
+                try
+                {
+                    entity.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                }
+                
+            }
+        }
+
+
+        internal static void Actualizar(ConecionServidores model, ref string error)
+        {
+            using (MapWorldSystemEntities entity = new MapWorldSystemEntities())
+            {   
+                entity.Entry(model).State = System.Data.Entity.EntityState.Modified;
+
+                try
+                {
+                    entity.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                }
+
+            }
+        }
     }
 }
