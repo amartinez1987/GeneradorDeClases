@@ -16,6 +16,7 @@ namespace GeneradorClases
     public partial class frmGeneradorCodigos : Form
     {
         List<string> listaEstados = new List<string>();
+        List<string> listaOperacionesPatron= new List<string>();
         public frmGeneradorCodigos()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace GeneradorClases
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             string error="";
-            foreach (string item in listOpciones.SelectedItems)
+            foreach (string item in listOpciones.CheckedItems)
             {
                 if (item == "ClasesViewModel")
                 {
@@ -52,6 +53,21 @@ namespace GeneradorClases
                 if (item == "Controlador Sin CRUD")
                 {
                     generarControladoresSinCRUD.generarClasesController(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+                }
+
+                if (item == "Controlador Con CRUD")
+                {
+                    GenerarControladoresConCRUD.generarClasesController(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+                }
+
+                if (item == "PatterState")
+                {
+                    if(listaEstados.Count<1)
+                    {
+                        MessageBox.Show("Defina los estados que puede tener el patron.");
+                        return;
+                    }
+                    GenerarClasesPatterState.generarClases(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text,listaEstados, listaOperacionesPatron, ref error); ;
                 }
             }
 
@@ -65,7 +81,7 @@ namespace GeneradorClases
 
         private void btnEstados_Click(object sender, EventArgs e)
         {
-            foreach (string item in listOpciones.SelectedItems)
+            foreach (string item in listOpciones.CheckedItems)
             {
                 if (item == "PatterState")
                 {
@@ -103,6 +119,19 @@ namespace GeneradorClases
             string error = "";
             dtColumnas.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error);
             
+        }
+
+        private void btnOperacionesPatronState_Click(object sender, EventArgs e)
+        {
+            foreach (string item in listOpciones.CheckedItems)
+            {
+                if (item == "PatterState")
+                {
+                    frmEstadosPatron frmEstados = new frmEstadosPatron(ref listaOperacionesPatron);
+                    frmEstados.Text = "Operaciones del Patron";
+                    DialogResult res = frmEstados.ShowDialog();
+                }
+            }
         }
     }
 }

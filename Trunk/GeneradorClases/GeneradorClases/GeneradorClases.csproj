@@ -57,9 +57,12 @@
   <ItemGroup>
     <Compile Include="Entity\Controller\ConecionServidorController.cs" />
     <Compile Include="Entity\Controller\GeneradorClasesViewModel.cs" />
+    <Compile Include="Entity\Controller\GenerarClasesPatterState.cs" />
+    <Compile Include="Entity\Controller\GenerarControladoresConCRUD.cs" />
     <Compile Include="Entity\Controller\generarControladoresSinCRUD.cs" />
     <Compile Include="Entity\Controller\MetodosGeneralesController.cs" />
     <Compile Include="Entity\Controller\vSysDataBaseController.cs" />
+    <Compile Include="Entity\Model\Class1.cs" />
     <Compile Include="Entity\Model\ConecionServidores.cs">
       <DependentUpon>GeneradorCodigo.tt</DependentUpon>
     </Compile>

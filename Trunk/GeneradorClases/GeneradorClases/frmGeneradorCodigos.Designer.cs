@@ -33,6 +33,9 @@
             this.lblTablas = new System.Windows.Forms.Label();
             this.cmbTabla = new System.Windows.Forms.ComboBox();
             this.dtColumnas = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.listOpciones = new System.Windows.Forms.CheckedListBox();
             this.btnEstados = new System.Windows.Forms.Button();
@@ -40,13 +43,11 @@
             this.txtDirectorioDestino = new System.Windows.Forms.TextBox();
             this.btnCambiarDirectorio = new System.Windows.Forms.Button();
             this.fDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreProyeco = new System.Windows.Forms.TextBox();
             this.txtNombreEntidad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnOperacionesPatronState = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtColumnas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,6 +99,24 @@
             this.dtColumnas.Size = new System.Drawing.Size(492, 271);
             this.dtColumnas.TabIndex = 4;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "nombreColumna";
+            this.Column1.HeaderText = "Nombre Columna";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "tipoDatoColumna";
+            this.Column2.HeaderText = "Tipo Dato Columna";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "esNulable";
+            this.Column3.HeaderText = "Es Nulable";
+            this.Column3.Name = "Column3";
+            // 
             // btnGenerar
             // 
             this.btnGenerar.Location = new System.Drawing.Point(510, 411);
@@ -118,7 +137,7 @@
             "PatterState"});
             this.listOpciones.Location = new System.Drawing.Point(510, 163);
             this.listOpciones.Name = "listOpciones";
-            this.listOpciones.Size = new System.Drawing.Size(172, 214);
+            this.listOpciones.Size = new System.Drawing.Size(172, 184);
             this.listOpciones.TabIndex = 7;
             this.listOpciones.Click += new System.EventHandler(this.listOpciones_Click);
             this.listOpciones.SelectedIndexChanged += new System.EventHandler(this.listOpciones_SelectedIndexChanged);
@@ -161,24 +180,6 @@
             this.btnCambiarDirectorio.UseVisualStyleBackColor = true;
             this.btnCambiarDirectorio.Click += new System.EventHandler(this.btnCambiarDirectorio_Click);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "nombreColumna";
-            this.Column1.HeaderText = "Nombre Columna";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "tipoDatoColumna";
-            this.Column2.HeaderText = "Tipo Dato Columna";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "esNulable";
-            this.Column3.HeaderText = "Es Nulable";
-            this.Column3.Name = "Column3";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -211,11 +212,22 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Nombre Entity";
             // 
+            // btnOperacionesPatronState
+            // 
+            this.btnOperacionesPatronState.Location = new System.Drawing.Point(510, 353);
+            this.btnOperacionesPatronState.Name = "btnOperacionesPatronState";
+            this.btnOperacionesPatronState.Size = new System.Drawing.Size(172, 23);
+            this.btnOperacionesPatronState.TabIndex = 16;
+            this.btnOperacionesPatronState.Text = "Operaciones Patron";
+            this.btnOperacionesPatronState.UseVisualStyleBackColor = true;
+            this.btnOperacionesPatronState.Click += new System.EventHandler(this.btnOperacionesPatronState_Click);
+            // 
             // frmGeneradorCodigos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 443);
+            this.Controls.Add(this.btnOperacionesPatronState);
             this.Controls.Add(this.txtNombreEntidad);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombreProyeco);
@@ -260,5 +272,6 @@
         private System.Windows.Forms.TextBox txtNombreProyeco;
         private System.Windows.Forms.TextBox txtNombreEntidad;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnOperacionesPatronState;
     }
 }

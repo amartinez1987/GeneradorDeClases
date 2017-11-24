@@ -69,12 +69,14 @@ namespace GeneradorClases.Entity.Controller
 
         private static string getNombreClaseController(string nombreTablasAClase)
         {
-            return nombreTablasAClase.Substring(0, 1).ToUpper() + nombreTablasAClase.Remove(0) + "Controller";
+            string caracterInicial = nombreTablasAClase.Remove(0).ToUpper();
+            return caracterInicial + nombreTablasAClase + "Controller";
         }
 
         private static string getNombreClaseModel(string nombreTablasAClase)
         {
-            return nombreTablasAClase.Substring(0, 1).ToUpper() + nombreTablasAClase.Remove(0) + "ViewModel";
+            string caracterInicial = nombreTablasAClase.Remove(0).ToUpper();
+            return caracterInicial + nombreTablasAClase + "ViewModel";            
         }
     }
 }

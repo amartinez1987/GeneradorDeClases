@@ -21,7 +21,7 @@ namespace GeneradorClases
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (!listBoxEstados.Items.Contains(txtEstado.Text))
+            if (!listadoEstados.Contains(txtEstado.Text))
             {
                 listBoxEstados.Items.Add(txtEstado.Text);
                 listadoEstados.Add(txtEstado.Text);

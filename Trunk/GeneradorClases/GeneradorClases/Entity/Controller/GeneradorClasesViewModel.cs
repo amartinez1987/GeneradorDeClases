@@ -56,7 +56,7 @@ namespace GeneradorClases.Entity.Controller
                     case "char":
                     case "nchar":
                     case "varchar":
-                        lineasDocumento.Add(string.Format("public string{1} {0}", item.nombreColumna, isNulable) + "{get;set;}");
+                        lineasDocumento.Add(string.Format("public string {0}", item.nombreColumna, isNulable) + "{get;set;}");
                         break;
                     case "datetime ":
                         lineasDocumento.Add(string.Format("public DateTime{1} {0}", item.nombreColumna, isNulable) + "{get;set;}");
@@ -87,7 +87,9 @@ namespace GeneradorClases.Entity.Controller
 
         private static string getNombreClase(string nombreTablasAClase)
         {
-            return nombreTablasAClase.Substring(0, 1).ToUpper() + nombreTablasAClase.Remove(0) + "ViewModel";
+            string caracterInicial = nombreTablasAClase.Remove(0).ToUpper();
+            return caracterInicial + nombreTablasAClase + "ViewModel";    
+            
         }
     }
 }
