@@ -88,7 +88,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("");
             lineasDocumento.Add(string.Format("namespace {0}.Entity.Controller", nombreProyecto));
             lineasDocumento.Add("{");
-            lineasDocumento.Add(string.Format("public class {0}", nombreClaseState));
+            lineasDocumento.Add(string.Format("public interface {0}", nombreClaseState));
             lineasDocumento.Add("{");
             foreach (string item in listEstadosRegistro)
             {
