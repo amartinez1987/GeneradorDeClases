@@ -56,12 +56,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Controller\ConecionServidorController.cs" />
+    <Compile Include="Entity\Controller\GeneradorClasesViewModel.cs" />
+    <Compile Include="Entity\Controller\generarControladoresSinCRUD.cs" />
     <Compile Include="Entity\Controller\MetodosGeneralesController.cs" />
     <Compile Include="Entity\Controller\vSysDataBaseController.cs" />
     <Compile Include="Entity\Model\ConecionServidores.cs">
       <DependentUpon>GeneradorCodigo.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Model\ConecionServidorViewModel.cs" />
+    <Compile Include="Entity\Model\DatosColumna.cs" />
     <Compile Include="Entity\Model\GeneradorCodigo.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

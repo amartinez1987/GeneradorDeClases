@@ -1,8 +1,11 @@
-﻿using System;
+﻿using GeneradorClases.Entity.Controller;
+using GeneradorClases.Entity.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +19,14 @@ namespace GeneradorClases
         public frmGeneradorCodigos()
         {
             InitializeComponent();
+            cargarConecciones();
+        }
+
+        private void cargarConecciones()
+        {
+            cmbConecciones.DataSource = ConecionServidorController.getListConeccionesServidor();
+            cmbConecciones.ValueMember = "id";
+            cmbConecciones.DisplayMember = "nombreConeccion";
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -30,10 +41,21 @@ namespace GeneradorClases
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            foreach (string item in listaEstados)
+            string error="";
+            foreach (string item in listOpciones.SelectedItems)
             {
+                if (item == "ClasesViewModel")
+                {
+                    GeneradorClasesViewModel.generarClasesViewModel(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text,ref error);   
+                }
 
+                if (item == "Controlador Sin CRUD")
+                {
+                    generarControladoresSinCRUD.generarClasesController(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+                }
             }
+
+            MessageBox.Show("Proceso de Generación Completado.");
         }
 
         private void listOpciones_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,6 +73,36 @@ namespace GeneradorClases
                     DialogResult res = frmEstados.ShowDialog();
                 }
             }
+        }
+
+        private void cmbConecciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ConecionServidorViewModel model = (cmbConecciones.SelectedItem as ConecionServidorViewModel);
+            string error = "";
+            cmbTabla.DataSource = MetodosGeneralesController.getListaTablasBaseDatos(model.servidor, model.baseDatos, model.usuario, model.contrasena, ref error);            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCambiarDirectorio_Click(object sender, EventArgs e)
+        {
+            DialogResult result = fDialog.ShowDialog();
+
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fDialog.SelectedPath))
+            {
+                txtDirectorioDestino.Text = fDialog.SelectedPath;
+            }
+        }
+
+        private void cmbTabla_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ConecionServidorViewModel model = (cmbConecciones.SelectedItem as ConecionServidorViewModel);
+            string error = "";
+            dtColumnas.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error);
+            
         }
     }
 }
