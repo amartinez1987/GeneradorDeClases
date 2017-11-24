@@ -76,11 +76,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("{");
             lineasDocumento.Add(string.Format("int {0}Id = registro.id;", nombreTablaAClase.ToLower()));
             lineasDocumento.Add(string.Format("{0} registroEditar = entity.{1}.Where(x => x.id == {2}Id).SingleOrDefault();", nombreClaseViewModel, nombreTablaAClase, nombreTablaAClase.ToLower()));
-            foreach (DatosColumna item in listadoColumnas)
-            {
-                lineasDocumento.Add(string.Format("registroEditar.{0} = registro.{0};", item.nombreColumna));
-            }
-            lineasDocumento.Add("entity.Entry(registroEditar).State = System.Data.Entity.EntityState.Modified;");
+            lineasDocumento.Add("entity.Entry(registroEditar).CurrentValues.SetValues(registro);");                        
             lineasDocumento.Add("try");
             lineasDocumento.Add("{");
             lineasDocumento.Add("entity.SaveChanges();");
