@@ -43,12 +43,12 @@ namespace GeneradorClases.Entity.Controller
                 lineasDocumento.Add("{");
                     lineasDocumento.Add(string.Format("public class {0}_{1}:{0}", nombreClaseState,item));
                     lineasDocumento.Add("{");
-                        lineasDocumento.Add(string.Format("private const string nombreEstado = \"{0}\"",item));
+                        lineasDocumento.Add(string.Format("private const string nombreEstado = \"{0}\";",item));
                         foreach (string op in listOperaciones)
                         {
                             lineasDocumento.Add(string.Format("Result {0}(ref {1} registro)",op, nombreTablaAClase));
                             lineasDocumento.Add("{");
-                            lineasDocumento.Add("Result resul = new Result()");
+                            lineasDocumento.Add("Result resul = new Result();");
                             lineasDocumento.Add("resul.error = \"No se puede realizar esta operación en el estado actual del registro\";");
                             lineasDocumento.Add("return resul;");
                             lineasDocumento.Add("}");
@@ -127,7 +127,7 @@ namespace GeneradorClases.Entity.Controller
             foreach (string item in listEstadosRegistro)
             {
                 lineasDocumento.Add(string.Format("case \"{0}\":", item));
-                lineasDocumento.Add(string.Format("return {0}_{1}()", nombreClaseState, item));
+                lineasDocumento.Add(string.Format("return {0}_{1}();", nombreClaseState, item));
 
             }
             lineasDocumento.Add("default:");
