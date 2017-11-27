@@ -76,5 +76,10 @@ namespace GeneradorClases
                }
             }
         }
+
+        private void dtListaAdminConecciones_CellBorderStyleChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

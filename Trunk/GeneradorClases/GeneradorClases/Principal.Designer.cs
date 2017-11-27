@@ -33,10 +33,11 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarCodigosFunetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.generarCodigosFunetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generadorFormulariosYListadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +56,8 @@
             // 
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
-            this.generarCodigosFunetesToolStripMenuItem});
+            this.generarCodigosFunetesToolStripMenuItem,
+            this.generadorFormulariosYListadosToolStripMenuItem});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(81, 20);
@@ -70,6 +72,13 @@
             this.newToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
             this.newToolStripMenuItem.Text = "Administrar Conecciones";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
+            // 
+            // generarCodigosFunetesToolStripMenuItem
+            // 
+            this.generarCodigosFunetesToolStripMenuItem.Name = "generarCodigosFunetesToolStripMenuItem";
+            this.generarCodigosFunetesToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.generarCodigosFunetesToolStripMenuItem.Text = "Generar Codigos Funetes";
+            this.generarCodigosFunetesToolStripMenuItem.Click += new System.EventHandler(this.generarCodigosFunetesToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -87,12 +96,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // generarCodigosFunetesToolStripMenuItem
+            // generadorFormulariosYListadosToolStripMenuItem
             // 
-            this.generarCodigosFunetesToolStripMenuItem.Name = "generarCodigosFunetesToolStripMenuItem";
-            this.generarCodigosFunetesToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.generarCodigosFunetesToolStripMenuItem.Text = "Generar Codigos Funetes";
-            this.generarCodigosFunetesToolStripMenuItem.Click += new System.EventHandler(this.generarCodigosFunetesToolStripMenuItem_Click);
+            this.generadorFormulariosYListadosToolStripMenuItem.Name = "generadorFormulariosYListadosToolStripMenuItem";
+            this.generadorFormulariosYListadosToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.generadorFormulariosYListadosToolStripMenuItem.Text = "Generador Formularios y listados";
+            this.generadorFormulariosYListadosToolStripMenuItem.Click += new System.EventHandler(this.generadorFormulariosYListadosToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -123,6 +132,7 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem generarCodigosFunetesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generadorFormulariosYListadosToolStripMenuItem;
     }
 }
 

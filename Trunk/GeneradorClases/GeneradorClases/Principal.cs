@@ -118,5 +118,14 @@ namespace GeneradorClases
             childFormNumber++;
             childForm.Show();
         }
+
+        private void generadorFormulariosYListadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGeneradorForms childForm = new frmGeneradorForms();
+            childForm.MdiParent = this;
+            childForm.Text = "Generador de Formularios y Listados ";
+            childFormNumber++;
+            childForm.Show();
+        }
     }
 }

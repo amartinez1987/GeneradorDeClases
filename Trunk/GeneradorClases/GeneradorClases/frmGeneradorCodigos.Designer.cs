@@ -33,21 +33,21 @@
             this.lblTablas = new System.Windows.Forms.Label();
             this.cmbTabla = new System.Windows.Forms.ComboBox();
             this.dtColumnas = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.listOpciones = new System.Windows.Forms.CheckedListBox();
-            this.btnEstados = new System.Windows.Forms.Button();
+            this.btnConfiguracionListar = new System.Windows.Forms.Button();
             this.lblDireccionDatos = new System.Windows.Forms.Label();
             this.txtDirectorioDestino = new System.Windows.Forms.TextBox();
             this.btnCambiarDirectorio = new System.Windows.Forms.Button();
             this.fDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreProyeco = new System.Windows.Forms.TextBox();
+            this.lblTecnologia = new System.Windows.Forms.Label();
+            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNombreEntidad = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnOperacionesPatronState = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtColumnas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,29 +93,12 @@
             this.dtColumnas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column4});
             this.dtColumnas.Location = new System.Drawing.Point(12, 163);
             this.dtColumnas.Name = "dtColumnas";
             this.dtColumnas.Size = new System.Drawing.Size(492, 271);
             this.dtColumnas.TabIndex = 4;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "nombreColumna";
-            this.Column1.HeaderText = "Nombre Columna";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "tipoDatoColumna";
-            this.Column2.HeaderText = "Tipo Dato Columna";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "esNulable";
-            this.Column3.HeaderText = "Es Nulable";
-            this.Column3.Name = "Column3";
             // 
             // btnGenerar
             // 
@@ -131,26 +114,22 @@
             // 
             this.listOpciones.FormattingEnabled = true;
             this.listOpciones.Items.AddRange(new object[] {
-            "ClasesViewModel",
-            "Controlador Con CRUD",
-            "Controlador Sin CRUD",
-            "PatterState"});
+            "ascx",
+            "listar"});
             this.listOpciones.Location = new System.Drawing.Point(510, 163);
             this.listOpciones.Name = "listOpciones";
-            this.listOpciones.Size = new System.Drawing.Size(172, 184);
+            this.listOpciones.Size = new System.Drawing.Size(172, 214);
             this.listOpciones.TabIndex = 7;
-            this.listOpciones.Click += new System.EventHandler(this.listOpciones_Click);
             this.listOpciones.SelectedIndexChanged += new System.EventHandler(this.listOpciones_SelectedIndexChanged);
             // 
-            // btnEstados
+            // btnConfiguracionListar
             // 
-            this.btnEstados.Location = new System.Drawing.Point(510, 383);
-            this.btnEstados.Name = "btnEstados";
-            this.btnEstados.Size = new System.Drawing.Size(172, 23);
-            this.btnEstados.TabIndex = 8;
-            this.btnEstados.Text = "Agregar Estados del Patron";
-            this.btnEstados.UseVisualStyleBackColor = true;
-            this.btnEstados.Click += new System.EventHandler(this.btnEstados_Click);
+            this.btnConfiguracionListar.Location = new System.Drawing.Point(510, 383);
+            this.btnConfiguracionListar.Name = "btnConfiguracionListar";
+            this.btnConfiguracionListar.Size = new System.Drawing.Size(172, 23);
+            this.btnConfiguracionListar.TabIndex = 8;
+            this.btnConfiguracionListar.Text = "Configuración Listar";
+            this.btnConfiguracionListar.UseVisualStyleBackColor = true;
             // 
             // lblDireccionDatos
             // 
@@ -196,6 +175,40 @@
             this.txtNombreProyeco.Size = new System.Drawing.Size(523, 20);
             this.txtNombreProyeco.TabIndex = 13;
             // 
+            // lblTecnologia
+            // 
+            this.lblTecnologia.AutoSize = true;
+            this.lblTecnologia.Location = new System.Drawing.Point(12, 127);
+            this.lblTecnologia.Name = "lblTecnologia";
+            this.lblTecnologia.Size = new System.Drawing.Size(73, 13);
+            this.lblTecnologia.TabIndex = 14;
+            this.lblTecnologia.Text = "Nombre Entity";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Tipo Control";
+            this.Column4.Name = "Column4";
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "esNulable";
+            this.Column3.HeaderText = "Es Nulable";
+            this.Column3.Name = "Column3";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "tipoDatoColumna";
+            this.Column2.HeaderText = "Tipo Dato Columna";
+            this.Column2.Name = "Column2";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "nombreColumna";
+            this.Column1.HeaderText = "Nombre Columna";
+            this.Column1.Name = "Column1";
+            // 
             // txtNombreEntidad
             // 
             this.txtNombreEntidad.Location = new System.Drawing.Point(156, 124);
@@ -203,39 +216,19 @@
             this.txtNombreEntidad.Size = new System.Drawing.Size(523, 20);
             this.txtNombreEntidad.TabIndex = 15;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Nombre Entity";
-            // 
-            // btnOperacionesPatronState
-            // 
-            this.btnOperacionesPatronState.Location = new System.Drawing.Point(510, 353);
-            this.btnOperacionesPatronState.Name = "btnOperacionesPatronState";
-            this.btnOperacionesPatronState.Size = new System.Drawing.Size(172, 23);
-            this.btnOperacionesPatronState.TabIndex = 16;
-            this.btnOperacionesPatronState.Text = "Operaciones Patron";
-            this.btnOperacionesPatronState.UseVisualStyleBackColor = true;
-            this.btnOperacionesPatronState.Click += new System.EventHandler(this.btnOperacionesPatronState_Click);
-            // 
             // frmGeneradorCodigos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 443);
-            this.Controls.Add(this.btnOperacionesPatronState);
             this.Controls.Add(this.txtNombreEntidad);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTecnologia);
             this.Controls.Add(this.txtNombreProyeco);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCambiarDirectorio);
             this.Controls.Add(this.txtDirectorioDestino);
             this.Controls.Add(this.lblDireccionDatos);
-            this.Controls.Add(this.btnEstados);
+            this.Controls.Add(this.btnConfiguracionListar);
             this.Controls.Add(this.listOpciones);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dtColumnas);
@@ -244,7 +237,7 @@
             this.Controls.Add(this.cmbConecciones);
             this.Controls.Add(this.lblNombreConeccion);
             this.Name = "frmGeneradorCodigos";
-            this.Text = "frmGeneradorCodigos";
+            this.Text = "Generador de Patrones";
             ((System.ComponentModel.ISupportInitialize)(this.dtColumnas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -260,18 +253,18 @@
         private System.Windows.Forms.DataGridView dtColumnas;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.CheckedListBox listOpciones;
-        private System.Windows.Forms.Button btnEstados;
+        private System.Windows.Forms.Button btnConfiguracionListar;
         private System.Windows.Forms.Label lblDireccionDatos;
         private System.Windows.Forms.TextBox txtDirectorioDestino;
         private System.Windows.Forms.Button btnCambiarDirectorio;
         private System.Windows.Forms.FolderBrowserDialog fDialog;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNombreProyeco;
+        private System.Windows.Forms.Label lblTecnologia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNombreProyeco;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column4;
         private System.Windows.Forms.TextBox txtNombreEntidad;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnOperacionesPatronState;
     }
 }

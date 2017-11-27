@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +12,18 @@ using System.Windows.Forms;
 
 namespace GeneradorClases
 {
-    public partial class frmGeneradorCodigos : Form
+    public partial class frmGeneradorForms : Form
     {
-        List<string> listaEstados = new List<string>();
-        List<string> listaOperacionesPatron= new List<string>();
-        public frmGeneradorCodigos()
+        ConecionServidorViewModel model = null;
+
+        public frmGeneradorForms()
         {
             InitializeComponent();
             cargarConecciones();
+    
         }
+
+    
 
         private void cargarConecciones()
         {
@@ -35,34 +37,32 @@ namespace GeneradorClases
 
         }
 
+        private void listOpciones_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            string error="";
+            string error = "";
             foreach (string item in listOpciones.CheckedItems)
             {
-                if (item == "ClasesViewModel")
+                if (item == "")
                 {
-                    GeneradorClasesViewModel.generarClasesViewModel(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text,ref error);   
+
                 }
 
-                if (item == "Controlador Sin CRUD")
+                if (item == "")
                 {
-                    generarControladoresSinCRUD.generarClasesController(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+
                 }
 
-                if (item == "Controlador Con CRUD")
+                if (item == "")
                 {
-                    GenerarControladoresConCRUD.generarClasesController(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
                 }
 
-                if (item == "PatterState")
+                if (item == "")
                 {
-                    if(listaEstados.Count<1)
-                    {
-                        MessageBox.Show("Defina los estados que puede tener el patron.");
-                        return;
-                    }
-                    GenerarClasesPatterState.generarClases(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text,listaEstados, listaOperacionesPatron, ref error); ;
                 }
             }
 
@@ -71,19 +71,19 @@ namespace GeneradorClases
 
         private void listOpciones_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnEstados_Click(object sender, EventArgs e)
         {
-
         }
 
         private void cmbConecciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             ConecionServidorViewModel model = (cmbConecciones.SelectedItem as ConecionServidorViewModel);
+
             string error = "";
-            cmbTabla.DataSource = MetodosGeneralesController.getListaTablasBaseDatos(model.servidor, model.baseDatos, model.usuario, model.contrasena, ref error);            
+            cmbTabla.DataSource = MetodosGeneralesController.getListaTablasBaseDatos(model.servidor, model.baseDatos, model.usuario, model.contrasena, ref error);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -104,14 +104,61 @@ namespace GeneradorClases
         private void cmbTabla_SelectedIndexChanged(object sender, EventArgs e)
         {
             ConecionServidorViewModel model = (cmbConecciones.SelectedItem as ConecionServidorViewModel);
+            this.model = model;
             string error = "";
+
             dtColumnas.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error);
-            
+
         }
 
         private void btnOperacionesPatronState_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void cmbTecnologia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarTipoElementosPorLenguaje(cmbTecnologia.SelectedItem.ToString());
+        }
+
+        private void cargarTipoElementosPorLenguaje(string item)
+        {
+            switch (item) 
+            {
+                case ".net + DevExpress":
+
+                    cmbTipoControl.DataSource = MetodosGeneralesController.getElementosDevExpres();
+                    cmbTipoControl.ValueMember  = "id";
+                    cmbTipoControl.DisplayMember = "nombre";
+                    break;
+            }
+        }
+
+        private void dtColumnas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Ignore clicks that are not on button cells. 
+            if (e.RowIndex > -1 && e.ColumnIndex == dtColumnas.Columns["btnEditar"].Index)
+            {
+                DataGridViewComboBoxCell c = ( dtColumnas.Rows[e.RowIndex].Cells["cmbTipoControl"] as DataGridViewComboBoxCell);
+
+                ControlesDevExpress cDx = null;
+                foreach (ControlesDevExpress item in c.Items)
+                {
+                    cDx = item.id == int.Parse(c.Value.ToString()) ? item : cDx;
+                }
+
+                if (cDx != null)
+                {
+                    frmConfiguracionControlDevExpress childForm = new frmConfiguracionControlDevExpress(ref cDx, (cmbTabla.DataSource as List<string>),  model);
+
+                    childForm.Text = "Configurar Control";
+                    childForm.Show();
+                }
+
+            }
+
+          
+        }
+
     }
 }

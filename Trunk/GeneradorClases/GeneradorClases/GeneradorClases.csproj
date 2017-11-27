@@ -67,6 +67,7 @@
       <DependentUpon>GeneradorCodigo.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Model\ConecionServidorViewModel.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress.cs" />
     <Compile Include="Entity\Model\DatosColumna.cs" />
     <Compile Include="Entity\Model\GeneradorCodigo.Context.cs">
       <AutoGen>True</AutoGen>
@@ -99,6 +100,12 @@
     <Compile Include="frmAdministracionConeccion_Nuevo.Designer.cs">
       <DependentUpon>frmAdministracionConeccion_Nuevo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConfiguracionControlDevExpress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfiguracionControlDevExpress.Designer.cs">
+      <DependentUpon>frmConfiguracionControlDevExpress.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEstadosPatron.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +117,12 @@
     </Compile>
     <Compile Include="frmGeneradorCodigos.Designer.cs">
       <DependentUpon>frmGeneradorCodigos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGeneradorForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeneradorForms.Designer.cs">
+      <DependentUpon>frmGeneradorForms.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListadoAdministracionConecciones.cs">
       <SubType>Form</SubType>
@@ -131,11 +144,17 @@
     <EmbeddedResource Include="frmAdministracionConeccion_Nuevo.resx">
       <DependentUpon>frmAdministracionConeccion_Nuevo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConfiguracionControlDevExpress.resx">
+      <DependentUpon>frmConfiguracionControlDevExpress.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEstadosPatron.resx">
       <DependentUpon>frmEstadosPatron.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGeneradorCodigos.resx">
       <DependentUpon>frmGeneradorCodigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGeneradorForms.resx">
+      <DependentUpon>frmGeneradorForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListadoAdministracionConecciones.resx">
       <DependentUpon>frmListadoAdministracionConecciones.cs</DependentUpon>

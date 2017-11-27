@@ -66,6 +66,7 @@
             this.dtListaAdminConecciones.Name = "dtListaAdminConecciones";
             this.dtListaAdminConecciones.Size = new System.Drawing.Size(563, 209);
             this.dtListaAdminConecciones.TabIndex = 1;
+            this.dtListaAdminConecciones.CellBorderStyleChanged += new System.EventHandler(this.dtListaAdminConecciones_CellBorderStyleChanged);
             this.dtListaAdminConecciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListaAdminConecciones_CellClick);
             // 
             // id
