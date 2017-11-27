@@ -34,20 +34,59 @@ namespace GeneradorClases
             this.cDx = cDx;
             this.list = list;            
             this.model = model;
-            cmbTabla.DataSource = list;            
-            string error = "";
-            cmbValorCampo.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error);
-            cmbValorCampo.ValueMember = "nombreColumna";
-            cmbValorCampo.DisplayMember = "nombreColumna";
-            cmbTextoCampo.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error);
-            cmbTextoCampo.ValueMember = "nombreColumna";
-            cmbTextoCampo.DisplayMember = "nombreColumna";
+            switch (cDx.nombre )
+            {
+                case "ASPxComboBox":
+                    cmbTabla.DataSource = list;
+                    string error = "";
+                    cmbValorCampo.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error);
+                    cmbValorCampo.ValueMember = "nombreColumna";
+                    cmbValorCampo.DisplayMember = "nombreColumna";
+                    cmbTextoCampo.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error);
+                    cmbTextoCampo.ValueMember = "nombreColumna";
+                    cmbTextoCampo.DisplayMember = "nombreColumna";
+
+                    chSinSpinButton.Enabled = false;
+                    txtFormatoFecha.Enabled = false;
+
+                    
+
+                    break;
+                case "ASPxSpinEdit":                      
+                    txtFormatoFecha.Enabled = false;
+                    cmbValorCampo.Enabled = false;
+                    cmbTextoCampo.Enabled = false;
+                    cmbTabla.Enabled = false;
+                    break;
+                case "ASPxDateEdit":
+                    cmbTabla.Enabled = false;
+                    cmbValorCampo.Enabled = false;
+                    cmbTextoCampo.Enabled = false;
+                    chSinSpinButton.Enabled = false;
+                    break;
+                    
+                default:
+                    cmbTabla.Enabled = false;
+                    cmbValorCampo.Enabled = false;
+                    cmbTextoCampo.Enabled = false;
+                    chSinSpinButton.Enabled = false;
+                    txtFormatoFecha.Enabled = false;
+                    break;
+            }
+
+
         }
 
     
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            cDx.tabla = cmbTabla.SelectedItem.ToString();
+            cDx.dataSource = cDx.tabla + "Controller.get" + cDx.tabla + "();";
+            cDx.sinSpinButton = chSinSpinButton.Checked;            
+            cDx.textField = (cmbTextoCampo.SelectedItem  as DatosColumna).nombreColumna;
+            cDx.valueField = (cmbValorCampo.SelectedItem as DatosColumna).nombreColumna;
+
             MessageBox.Show("Datos almacenados");
         }
 

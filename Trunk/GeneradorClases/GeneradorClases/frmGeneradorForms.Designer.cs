@@ -38,17 +38,17 @@
             this.listOpciones = new System.Windows.Forms.CheckedListBox();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.dtColumnas = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmbTipoControl = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cmbTabla = new System.Windows.Forms.ComboBox();
             this.lblTablas = new System.Windows.Forms.Label();
             this.cmbConecciones = new System.Windows.Forms.ComboBox();
             this.lblNombreConeccion = new System.Windows.Forms.Label();
             this.fDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.cmbTecnologia = new System.Windows.Forms.ComboBox();
+            this.nombreColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDatoColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.esNulable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbTipoControl = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtColumnas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,14 +131,15 @@
             this.btnGenerar.TabIndex = 22;
             this.btnGenerar.Text = "Generar Documentos";
             this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click_1);
             // 
             // dtColumnas
             // 
             this.dtColumnas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtColumnas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
+            this.nombreColumna,
+            this.tipoDatoColumna,
+            this.esNulable,
             this.cmbTipoControl,
             this.btnEditar});
             this.dtColumnas.Location = new System.Drawing.Point(8, 161);
@@ -146,38 +147,6 @@
             this.dtColumnas.Size = new System.Drawing.Size(492, 271);
             this.dtColumnas.TabIndex = 21;
             this.dtColumnas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtColumnas_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "nombreColumna";
-            this.Column1.HeaderText = "Nombre Columna";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "tipoDatoColumna";
-            this.Column2.HeaderText = "Tipo Dato Columna";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "esNulable";
-            this.Column3.HeaderText = "Es Nulable";
-            this.Column3.Name = "Column3";
-            // 
-            // cmbTipoControl
-            // 
-            this.cmbTipoControl.HeaderText = "Tipo Control";
-            this.cmbTipoControl.Name = "cmbTipoControl";
-            this.cmbTipoControl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cmbTipoControl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.HeaderText = "Column5";
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnEditar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // cmbTabla
             // 
@@ -227,6 +196,38 @@
             this.cmbTecnologia.TabIndex = 33;
             this.cmbTecnologia.SelectedIndexChanged += new System.EventHandler(this.cmbTecnologia_SelectedIndexChanged);
             // 
+            // nombreColumna
+            // 
+            this.nombreColumna.DataPropertyName = "nombreColumna";
+            this.nombreColumna.HeaderText = "Nombre Columna";
+            this.nombreColumna.Name = "nombreColumna";
+            // 
+            // tipoDatoColumna
+            // 
+            this.tipoDatoColumna.DataPropertyName = "tipoDatoColumna";
+            this.tipoDatoColumna.HeaderText = "Tipo Dato Columna";
+            this.tipoDatoColumna.Name = "tipoDatoColumna";
+            // 
+            // esNulable
+            // 
+            this.esNulable.DataPropertyName = "esNulable";
+            this.esNulable.HeaderText = "Es Nulable";
+            this.esNulable.Name = "esNulable";
+            // 
+            // cmbTipoControl
+            // 
+            this.cmbTipoControl.HeaderText = "Tipo Control";
+            this.cmbTipoControl.Name = "cmbTipoControl";
+            this.cmbTipoControl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cmbTipoControl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.HeaderText = "Column5";
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnEditar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // frmGeneradorForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,12 +273,12 @@
         private System.Windows.Forms.ComboBox cmbConecciones;
         private System.Windows.Forms.Label lblNombreConeccion;
         private System.Windows.Forms.FolderBrowserDialog fDialog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.ComboBox cmbTecnologia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreColumna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDatoColumna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn esNulable;
         private System.Windows.Forms.DataGridViewComboBoxColumn cmbTipoControl;
         private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
-        private System.Windows.Forms.ComboBox cmbTecnologia;
 
     }
 }

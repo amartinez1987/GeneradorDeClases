@@ -11,5 +11,6 @@ namespace GeneradorClases.Entity.Model
         public string nombreColumna { set; get; }
         public string tipoDatoColumna { set; get; }
         public string esNulable { set; get; }
+        public Control tipoControl { set; get; }
     }
 }

@@ -67,6 +67,7 @@
       <DependentUpon>GeneradorCodigo.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Model\ConecionServidorViewModel.cs" />
+    <Compile Include="Entity\Model\Control.cs" />
     <Compile Include="Entity\Model\ControlesDevExpress.cs" />
     <Compile Include="Entity\Model\DatosColumna.cs" />
     <Compile Include="Entity\Model\GeneradorCodigo.Context.cs">
@@ -84,6 +85,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GeneradorCodigo.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Controller\GenerarFormulariosDevExpress.cs" />
     <Compile Include="Entity\Model\vSysDataBase.cs">
       <DependentUpon>GeneradorCodigo.tt</DependentUpon>
     </Compile>

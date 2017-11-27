@@ -20,10 +20,10 @@ namespace GeneradorClases
         {
             InitializeComponent();
             cargarConecciones();
-    
+
         }
 
-    
+
 
         private void cargarConecciones()
         {
@@ -123,12 +123,12 @@ namespace GeneradorClases
 
         private void cargarTipoElementosPorLenguaje(string item)
         {
-            switch (item) 
+            switch (item)
             {
                 case ".net + DevExpress":
 
                     cmbTipoControl.DataSource = MetodosGeneralesController.getElementosDevExpres();
-                    cmbTipoControl.ValueMember  = "id";
+                    cmbTipoControl.ValueMember = "id";
                     cmbTipoControl.DisplayMember = "nombre";
                     break;
             }
@@ -139,7 +139,7 @@ namespace GeneradorClases
             // Ignore clicks that are not on button cells. 
             if (e.RowIndex > -1 && e.ColumnIndex == dtColumnas.Columns["btnEditar"].Index)
             {
-                DataGridViewComboBoxCell c = ( dtColumnas.Rows[e.RowIndex].Cells["cmbTipoControl"] as DataGridViewComboBoxCell);
+                DataGridViewComboBoxCell c = (dtColumnas.Rows[e.RowIndex].Cells["cmbTipoControl"] as DataGridViewComboBoxCell);
 
                 ControlesDevExpress cDx = null;
                 foreach (ControlesDevExpress item in c.Items)
@@ -149,7 +149,7 @@ namespace GeneradorClases
 
                 if (cDx != null)
                 {
-                    frmConfiguracionControlDevExpress childForm = new frmConfiguracionControlDevExpress(ref cDx, (cmbTabla.DataSource as List<string>),  model);
+                    frmConfiguracionControlDevExpress childForm = new frmConfiguracionControlDevExpress(ref cDx, (cmbTabla.DataSource as List<string>), model);
 
                     childForm.Text = "Configurar Control";
                     childForm.Show();
@@ -157,7 +157,39 @@ namespace GeneradorClases
 
             }
 
-          
+
+        }
+
+        private void btnGenerar_Click_1(object sender, EventArgs e)
+        {
+            string error = "";
+            foreach (string op in listOpciones.CheckedItems)
+            {
+                if (op == "ClasesViewModel")
+                {
+
+                    List<DatosColumna> l = (dtColumnas.DataSource as List<DatosColumna>);
+                    foreach (DataGridViewRow item in dtColumnas.Rows)
+                    {
+                        DataGridViewComboBoxCell c = (item.Cells["cmbTipoControl"] as DataGridViewComboBoxCell);
+                        try
+                        {
+                            ControlesDevExpress cDx = null;
+                            foreach (ControlesDevExpress i in c.Items)
+                            {
+                                cDx = i.id == int.Parse(c.Value.ToString()) ? i : cDx;
+                            }
+                            DatosColumna dtc = l.Find(x => x.nombreColumna == item.Cells["nombreColumna"].Value.ToString());
+                            dtc.tipoControl = cDx;
+                        }
+                        catch
+                        {                        }
+
+                    }
+
+
+                }
+            }
         }
 
     }

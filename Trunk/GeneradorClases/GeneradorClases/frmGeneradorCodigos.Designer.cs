@@ -33,6 +33,10 @@
             this.lblTablas = new System.Windows.Forms.Label();
             this.cmbTabla = new System.Windows.Forms.ComboBox();
             this.dtColumnas = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.listOpciones = new System.Windows.Forms.CheckedListBox();
             this.btnConfiguracionListar = new System.Windows.Forms.Button();
@@ -43,10 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreProyeco = new System.Windows.Forms.TextBox();
             this.lblTecnologia = new System.Windows.Forms.Label();
-            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNombreEntidad = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtColumnas)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +100,31 @@
             this.dtColumnas.Size = new System.Drawing.Size(492, 271);
             this.dtColumnas.TabIndex = 4;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "nombreColumna";
+            this.Column1.HeaderText = "Nombre Columna";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "tipoDatoColumna";
+            this.Column2.HeaderText = "Tipo Dato Columna";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "esNulable";
+            this.Column3.HeaderText = "Es Nulable";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Tipo Control";
+            this.Column4.Name = "Column4";
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // btnGenerar
             // 
             this.btnGenerar.Location = new System.Drawing.Point(510, 411);
@@ -114,8 +139,10 @@
             // 
             this.listOpciones.FormattingEnabled = true;
             this.listOpciones.Items.AddRange(new object[] {
-            "ascx",
-            "listar"});
+            "ClasesViewModel",
+            "Controlador Sin CRUD",
+            "Controlador Con CRUD",
+            "PatterState"});
             this.listOpciones.Location = new System.Drawing.Point(510, 163);
             this.listOpciones.Name = "listOpciones";
             this.listOpciones.Size = new System.Drawing.Size(172, 214);
@@ -183,31 +210,6 @@
             this.lblTecnologia.Size = new System.Drawing.Size(73, 13);
             this.lblTecnologia.TabIndex = 14;
             this.lblTecnologia.Text = "Nombre Entity";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tipo Control";
-            this.Column4.Name = "Column4";
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "esNulable";
-            this.Column3.HeaderText = "Es Nulable";
-            this.Column3.Name = "Column3";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "tipoDatoColumna";
-            this.Column2.HeaderText = "Tipo Dato Columna";
-            this.Column2.Name = "Column2";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "nombreColumna";
-            this.Column1.HeaderText = "Nombre Columna";
-            this.Column1.Name = "Column1";
             // 
             // txtNombreEntidad
             // 
