@@ -42,7 +42,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add(string.Format("var l = from {0} in entity.{1}", nombreTablaAClase.ToLower(),nombreTablaAClase));
             foreach (DatosColumna item in listadoColumnas)
             {
-                listadoAtributosSelect+=string.Format("{0}=l.{0},", item.nombreColumna  );
+                listadoAtributosSelect += string.Format("{0}={1}.{0},", item.nombreColumna, nombreTablaAClase.ToLower());
             }
             listadoAtributosSelect = listadoAtributosSelect.Remove(listadoAtributosSelect.Length-1);
             lineasDocumento.Add(string.Format("select new {0}", nombreClaseViewModel) + "{" + listadoAtributosSelect + "};");
@@ -52,9 +52,12 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("");
             lineasDocumento.Add(string.Format("public static {0} get{1}()", nombreClaseViewModel, nombreTablaAClase));
             lineasDocumento.Add("{");
+            lineasDocumento.Add(string.Format("using ({0} entity = new {0}())", nombreEntidad));
+            lineasDocumento.Add("{");
             lineasDocumento.Add(string.Format("var l = from {0} in entity.{1}", nombreTablaAClase.ToLower(), nombreTablaAClase));                       
             lineasDocumento.Add(string.Format("select new {0}", nombreClaseViewModel) + "{" + listadoAtributosSelect + "};");
-            lineasDocumento.Add("return l.SingleOrDefault();"); 
+            lineasDocumento.Add("return l.SingleOrDefault();");
+            lineasDocumento.Add("}");
             lineasDocumento.Add("}");
             lineasDocumento.Add("}");
             lineasDocumento.Add("}");
