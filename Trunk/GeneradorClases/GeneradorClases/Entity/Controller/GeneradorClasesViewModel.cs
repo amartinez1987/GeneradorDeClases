@@ -58,7 +58,7 @@ namespace GeneradorClases.Entity.Controller
                     case "varchar":
                         lineasDocumento.Add(string.Format("public string {0}", item.nombreColumna, isNulable) + "{get;set;}");
                         break;
-                    case "datetime ":
+                    case "datetime":
                         lineasDocumento.Add(string.Format("public DateTime{1} {0}", item.nombreColumna, isNulable) + "{get;set;}");
                         break;
                     case "float":
