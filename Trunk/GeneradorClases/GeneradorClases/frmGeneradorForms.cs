@@ -165,7 +165,7 @@ namespace GeneradorClases
             string error = "";
             foreach (string op in listOpciones.CheckedItems)
             {
-                if (op == "ClasesViewModel")
+                if (op == "Formulario")
                 {
 
                     List<DatosColumna> l = (dtColumnas.DataSource as List<DatosColumna>);

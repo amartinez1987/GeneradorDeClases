@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeneradorClases.Entity.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,9 @@ namespace GeneradorClases.Entity.Controller
 {
     public class GenerarFormulariosDevExpress
     {
-
+        public void generarFormularioAscx(List<DatosColumna> lDct) 
+        {
+        
+        }
     }
 }
