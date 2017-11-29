@@ -15,5 +15,7 @@ namespace GeneradorClases.Entity.Model
         public string textField { set; get; }
         public string formatoFecha { set; get; }
         public bool sinSpinButton { set; get; }
+
+    
     }
 }

@@ -69,6 +69,19 @@
     <Compile Include="Entity\Model\ConecionServidorViewModel.cs" />
     <Compile Include="Entity\Model\Control.cs" />
     <Compile Include="Entity\Model\ControlesDevExpress.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxButtonEdit.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxCheckBox.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxCheckBoxList.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxComboBox.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxDateEdit.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxListBox.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxMemo.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxRadioButton.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxRadioButtonList.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxSpinEdit.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxTextBox.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxTimeEdit.cs" />
+    <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxUploadControl.cs" />
     <Compile Include="Entity\Model\DatosColumna.cs" />
     <Compile Include="Entity\Model\GeneradorCodigo.Context.cs">
       <AutoGen>True</AutoGen>

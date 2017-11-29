@@ -10,6 +10,5 @@ namespace GeneradorClases.Entity.Model
     {
         public int id { set; get; }
         public string nombre { set; get; }
-        public string alias { set; get; }
     }
 }

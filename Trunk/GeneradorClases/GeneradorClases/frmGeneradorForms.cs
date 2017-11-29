@@ -42,33 +42,6 @@ namespace GeneradorClases
 
         }
 
-        private void btnGenerar_Click(object sender, EventArgs e)
-        {
-            string error = "";
-            foreach (string item in listOpciones.CheckedItems)
-            {
-                if (item == "")
-                {
-
-                }
-
-                if (item == "")
-                {
-
-                }
-
-                if (item == "")
-                {
-                }
-
-                if (item == "")
-                {
-                }
-            }
-
-            MessageBox.Show("Proceso de Generación Completado.");
-        }
-
         private void listOpciones_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -103,12 +76,7 @@ namespace GeneradorClases
 
         private void cmbTabla_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ConecionServidorViewModel model = (cmbConecciones.SelectedItem as ConecionServidorViewModel);
-            this.model = model;
-            string error = "";
-
-            dtColumnas.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error);
-
+        
         }
 
         private void btnOperacionesPatronState_Click(object sender, EventArgs e)
@@ -119,6 +87,11 @@ namespace GeneradorClases
         private void cmbTecnologia_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarTipoElementosPorLenguaje(cmbTecnologia.SelectedItem.ToString());
+            ConecionServidorViewModel model = (cmbConecciones.SelectedItem as ConecionServidorViewModel);
+            this.model = model;
+            string error = "";
+            dtColumnas.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error, cmbTecnologia.SelectedItem.ToString());
+            
         }
 
         private void cargarTipoElementosPorLenguaje(string item)
@@ -126,8 +99,7 @@ namespace GeneradorClases
             switch (item)
             {
                 case ".net + DevExpress":
-
-                    cmbTipoControl.DataSource = MetodosGeneralesController.getElementosDevExpres();
+                    cmbTipoControl.DataSource = MetodosGeneralesController.getElementosDevExpres();                    
                     cmbTipoControl.ValueMember = "id";
                     cmbTipoControl.DisplayMember = "nombre";
                     break;
@@ -167,26 +139,9 @@ namespace GeneradorClases
             {
                 if (op == "Formulario")
                 {
-
                     List<DatosColumna> l = (dtColumnas.DataSource as List<DatosColumna>);
-                    foreach (DataGridViewRow item in dtColumnas.Rows)
-                    {
-                        DataGridViewComboBoxCell c = (item.Cells["cmbTipoControl"] as DataGridViewComboBoxCell);
-                        try
-                        {
-                            ControlesDevExpress cDx = null;
-                            foreach (ControlesDevExpress i in c.Items)
-                            {
-                                cDx = i.id == int.Parse(c.Value.ToString()) ? i : cDx;
-                            }
-                            DatosColumna dtc = l.Find(x => x.nombreColumna == item.Cells["nombreColumna"].Value.ToString());
-                            dtc.tipoControl = cDx;
-                        }
-                        catch
-                        {                        }
-
-                    }
-
+                    GenerarFormulariosDevExpress.generarFormularioAscx(l,txtDirectorioDestino.Text,cmbTabla.SelectedItem.ToString(),txtNombreProyeco.Text);
+                    GenerarFormulariosDevExpress.generarFormularioAscxCs(l, txtDirectorioDestino.Text, cmbTabla.SelectedItem.ToString(), txtNombreProyeco.Text);
 
                 }
             }

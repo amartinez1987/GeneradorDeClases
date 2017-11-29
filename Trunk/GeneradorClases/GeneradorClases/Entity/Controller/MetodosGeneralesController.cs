@@ -56,7 +56,7 @@ namespace GeneradorClases.Entity.Controller
             }
         }
 
-        internal static List<DatosColumna> getColumnasTablaBaseDato(string nombreServidor, string baseDatos, string nombreUsuario, string contrasena, string tabla, ref string error)
+        internal static List<DatosColumna> getColumnasTablaBaseDato(string nombreServidor, string baseDatos, string nombreUsuario, string contrasena, string tabla, ref string error, string lenguaje = "")
         {
             string cadenaConeccion = string.Format("Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}", nombreServidor, baseDatos, nombreUsuario, contrasena);
             List<DatosColumna> listaDatosColumna = new List<DatosColumna>();
@@ -73,6 +73,11 @@ namespace GeneradorClases.Entity.Controller
                         dtC.nombreColumna = reader["nombreColumna"].ToString();
                         dtC.tipoDatoColumna = reader["tipoDatoColumna"].ToString();
                         dtC.esNulable = reader["esNulable"].ToString();
+                        if(lenguaje !=null?true:false )
+                        {
+                            dtC.tipoControl = (getTipoControl( dtC.tipoDatoColumna, lenguaje, dtC.nombreColumna ) as Control);
+                            dtC.tipoControlId = dtC.tipoControl.id;
+                        }
                         listaDatosColumna.Add(dtC);
                     }
                     con.Close();
@@ -87,88 +92,89 @@ namespace GeneradorClases.Entity.Controller
             }
         }
 
-        internal static List<ControlesDevExpress> getElementosDevExpres()
+        private static Control getTipoControl(string tipoDatoColumna = "", string lenguaje="", string nombreAtributo ="")
         {
-            List<ControlesDevExpress> lElement = new List<ControlesDevExpress>();
-            ControlesDevExpress cdx = new ControlesDevExpress();
-            cdx.id = 0;
-            cdx.alias = "cmb";
+            switch (lenguaje)
+            {
+                case ".net + DevExpress":
+                    return    GenerarFormulariosDevExpress.getControlesDevExprex(tipoDatoColumna, nombreAtributo);
+                    break;
+                default:
+                    return null;
+                    break;
+            }
+        }
+
+      
+
+        internal static List<Control> getElementosDevExpres()
+        {
+         
+
+            List<Control> lElement = new List<Control>();
+            Control cdx = new Control_ASPxComboBox();
+            cdx.id = 0;            
             cdx.nombre = "ASPxComboBox";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 1;
-            cdx.alias = "txt";
+            cdx = new Control_ASPxSpinEdit();
+            cdx.id = 1;            
             cdx.nombre = "ASPxSpinEdit";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 2;
-            cdx.alias = "txt";
+            cdx = new Control_ASPxTextBox();
+            cdx.id = 2;            
             cdx.nombre = "ASPxTextBox";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 3;
-            cdx.alias = "txt";
+            cdx = new Control_ASPxDateEdit();
+            cdx.id = 3;            
             cdx.nombre = "ASPxDateEdit";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 4;
-            cdx.alias = "chk";
+            cdx = new Control_ASPxCheckBox();
+            cdx.id = 4;            
             cdx.nombre = "ASPxCheckBox";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 5;
-            cdx.alias = "rb";
+            cdx = new Control_ASPxRadioButton();
+            cdx.id = 5;            
             cdx.nombre = "ASPxRadioButton";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 6;
-            cdx.alias = "chkL";
+            cdx = new Control_ASPxCheckBoxList();
+            cdx.id = 6;            
             cdx.nombre = "ASPxCheckBoxList";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 7;
-            cdx.alias = "rbL";
+            cdx = new Control_ASPxRadioButtonList();
+            cdx.id = 7;            
             cdx.nombre = "ASPxRadioButtonList";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 8;
-            cdx.alias = "lb";
+            cdx = new Control_ASPxListBox();
+            cdx.id = 8;            
             cdx.nombre = "ASPxListBox";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 9;
-            cdx.alias = "txt";
+            cdx = new Control_ASPxTimeEdit();
+            cdx.id = 9;            
             cdx.nombre = "ASPxTimeEdit";
-            lElement.Add(cdx);           
+            lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 11;
-            cdx.alias = "up";
+            cdx = new Control_ASPxUploadControl();
+            cdx.id = 11;            
             cdx.nombre = "ASPxUploadControl";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 12;
-            cdx.alias = "txt";
+            cdx = new Control_ASPxButtonEdit();
+            cdx.id = 12;            
             cdx.nombre = "ASPxButtonEdit";
             lElement.Add(cdx);
 
-            cdx = new ControlesDevExpress();
-            cdx.id = 13;
-            cdx.alias = "txt";
+            cdx = new Control_ASPxMemo();
+            cdx.id = 13;            
             cdx.nombre = "ASPxMemo";
-            lElement.Add(cdx);
-
-           
             lElement.Add(cdx);
 
             return lElement;

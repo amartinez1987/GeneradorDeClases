@@ -216,6 +216,7 @@
             // 
             // cmbTipoControl
             // 
+            this.cmbTipoControl.DataPropertyName = "tipoControlId";
             this.cmbTipoControl.HeaderText = "Tipo Control";
             this.cmbTipoControl.Name = "cmbTipoControl";
             this.cmbTipoControl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
