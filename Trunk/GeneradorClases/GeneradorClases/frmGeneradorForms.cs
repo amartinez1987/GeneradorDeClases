@@ -20,7 +20,6 @@ namespace GeneradorClases
         {
             InitializeComponent();
             cargarConecciones();
-
         }
 
 
@@ -59,6 +58,8 @@ namespace GeneradorClases
             cmbTabla.DataSource = MetodosGeneralesController.getListaTablasBaseDatos(model.servidor, model.baseDatos, model.usuario, model.contrasena, ref error);
         }
 
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -76,7 +77,7 @@ namespace GeneradorClases
 
         private void cmbTabla_SelectedIndexChanged(object sender, EventArgs e)
         {
-        
+
         }
 
         private void btnOperacionesPatronState_Click(object sender, EventArgs e)
@@ -86,12 +87,7 @@ namespace GeneradorClases
 
         private void cmbTecnologia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargarTipoElementosPorLenguaje(cmbTecnologia.SelectedItem.ToString());
-            ConecionServidorViewModel model = (cmbConecciones.SelectedItem as ConecionServidorViewModel);
-            this.model = model;
-            string error = "";
-            dtColumnas.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error, cmbTecnologia.SelectedItem.ToString());
-            
+           
         }
 
         private void cargarTipoElementosPorLenguaje(string item)
@@ -99,7 +95,7 @@ namespace GeneradorClases
             switch (item)
             {
                 case ".net + DevExpress":
-                    cmbTipoControl.DataSource = MetodosGeneralesController.getElementosDevExpres();                    
+                    cmbTipoControl.DataSource = MetodosGeneralesController.getElementosDevExpres();
                     cmbTipoControl.ValueMember = "id";
                     cmbTipoControl.DisplayMember = "nombre";
                     break;
@@ -109,12 +105,14 @@ namespace GeneradorClases
         private void dtColumnas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Ignore clicks that are not on button cells. 
+            List<DatosColumna> ldc = (dtColumnas.DataSource as List<DatosColumna>);
             if (e.RowIndex > -1 && e.ColumnIndex == dtColumnas.Columns["btnEditar"].Index)
             {
                 DataGridViewComboBoxCell c = (dtColumnas.Rows[e.RowIndex].Cells["cmbTipoControl"] as DataGridViewComboBoxCell);
+                string cnombreColumna = dtColumnas.Rows[e.RowIndex].Cells["nombreColumna"].Value.ToString();
 
-                ControlesDevExpress cDx = null;
-                foreach (ControlesDevExpress item in c.Items)
+                GeneradorClases.Entity.Model.Control cDx = null;
+                foreach (GeneradorClases.Entity.Model.Control item in c.Items)
                 {
                     cDx = item.id == int.Parse(c.Value.ToString()) ? item : cDx;
                 }
@@ -122,10 +120,14 @@ namespace GeneradorClases
                 if (cDx != null)
                 {
                     frmConfiguracionControlDevExpress childForm = new frmConfiguracionControlDevExpress(ref cDx, (cmbTabla.DataSource as List<string>), model);
-
                     childForm.Text = "Configurar Control";
-                    childForm.Show();
+                  DialogResult res =  childForm.ShowDialog();
+                  if (res == DialogResult.Cancel) 
+                  {
+                      ldc.SingleOrDefault(x => x.nombreColumna == cnombreColumna).tipoControl = cDx;
+                  }
                 }
+
 
             }
 
@@ -137,14 +139,44 @@ namespace GeneradorClases
             string error = "";
             foreach (string op in listOpciones.CheckedItems)
             {
-                if (op == "Formulario")
+                switch (cmbTecnologia.SelectedItem.ToString())
                 {
-                    List<DatosColumna> l = (dtColumnas.DataSource as List<DatosColumna>);
-                    GenerarFormulariosDevExpress.generarFormularioAscx(l,txtDirectorioDestino.Text,cmbTabla.SelectedItem.ToString(),txtNombreProyeco.Text);
-                    GenerarFormulariosDevExpress.generarFormularioAscxCs(l, txtDirectorioDestino.Text, cmbTabla.SelectedItem.ToString(), txtNombreProyeco.Text);
+                    case ".net + DevExpress":
 
+                        if (op == "Formulario")
+                        {
+                            List<DatosColumna> l = (dtColumnas.DataSource as List<DatosColumna>);
+                            foreach (DatosColumna item in l)
+                            {
+                                if (item.tipoControlId != item.tipoControl.id) 
+                                {
+                                    item.tipoControl = GenerarFormulariosDevExpress.getControlDevExprex(item.tipoControlId, item.tipoControl);
+                                }
+                            }
+                            GenerarFormulariosDevExpress.generarFormularioAscx(l, txtDirectorioDestino.Text, cmbTabla.SelectedItem.ToString(), txtNombreProyeco.Text);
+                            GenerarFormulariosDevExpress.generarFormularioAscxCs(l, txtDirectorioDestino.Text, cmbTabla.SelectedItem.ToString(), txtNombreProyeco.Text);
+
+                        }
+
+                        break;
                 }
+
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cargarTipoElementosPorLenguaje(cmbTecnologia.SelectedItem.ToString());
+            ConecionServidorViewModel model = (cmbConecciones.SelectedItem as ConecionServidorViewModel);
+            this.model = model;
+            string error = "";
+            dtColumnas.DataSource = MetodosGeneralesController.getColumnasTablaBaseDato(model.servidor, model.baseDatos, model.usuario, model.contrasena, cmbTabla.SelectedItem.ToString(), ref error, cmbTecnologia.SelectedItem.ToString());
+
+        }
+
+        private void dtColumnas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
     }

@@ -11,7 +11,7 @@ namespace GeneradorClases.Entity.Model
         
         private const string alias = "rbL";
         public string nombreAtributo { get; set; }
-        bool sinSpinButton { get; set; }
+        
         public Control_ASPxRadioButtonList(string nombreAtributo)
         {
             this.id = 7;
@@ -22,6 +22,9 @@ namespace GeneradorClases.Entity.Model
         public Control_ASPxRadioButtonList()
         {
             // TODO: Complete member initialization
+
+            this.id = 7;
+            this.nombre = "ASPxRadioButtonList";
         }
 
         public List<string> GetCodeBehindForm()

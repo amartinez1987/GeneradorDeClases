@@ -21,6 +21,8 @@ namespace GeneradorClases.Entity.Model
        public Control_ASPxCheckBox()
        {
            // TODO: Complete member initialization
+           this.id = 4;
+           this.nombre = "ASPxCheckBox";
        }
 
         public List<string> GetCodeBehindForm()

@@ -21,6 +21,8 @@ namespace GeneradorClases.Entity.Model
         public Control_ASPxTimeEdit()
         {
             // TODO: Complete member initialization
+            this.id = 9;
+            this.nombre = "ASPxTimeEdit";
         }
 
         public List<string> GetCodeBehindForm()

@@ -145,6 +145,7 @@
             this.Controls.Add(this.lblTabla);
             this.Name = "frmConfiguracionControlDevExpress";
             this.Text = "Configuracion Controles";
+            this.Load += new System.EventHandler(this.frmConfiguracionControlDevExpress_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

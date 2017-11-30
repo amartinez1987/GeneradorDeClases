@@ -56,7 +56,7 @@ namespace GeneradorClases.Entity.Controller
             }
         }
 
-        internal static List<DatosColumna> getColumnasTablaBaseDato(string nombreServidor, string baseDatos, string nombreUsuario, string contrasena, string tabla, ref string error, string lenguaje = "")
+        internal static List<DatosColumna> getColumnasTablaBaseDato(string nombreServidor, string baseDatos, string nombreUsuario, string contrasena, string tabla, ref string error, string lenguaje = null)
         {
             string cadenaConeccion = string.Format("Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}", nombreServidor, baseDatos, nombreUsuario, contrasena);
             List<DatosColumna> listaDatosColumna = new List<DatosColumna>();
@@ -109,7 +109,6 @@ namespace GeneradorClases.Entity.Controller
 
         internal static List<Control> getElementosDevExpres()
         {
-         
 
             List<Control> lElement = new List<Control>();
             Control cdx = new Control_ASPxComboBox();
@@ -163,17 +162,17 @@ namespace GeneradorClases.Entity.Controller
             lElement.Add(cdx);
 
             cdx = new Control_ASPxUploadControl();
-            cdx.id = 11;            
+            cdx.id = 10;            
             cdx.nombre = "ASPxUploadControl";
             lElement.Add(cdx);
 
             cdx = new Control_ASPxButtonEdit();
-            cdx.id = 12;            
+            cdx.id = 11;            
             cdx.nombre = "ASPxButtonEdit";
             lElement.Add(cdx);
 
             cdx = new Control_ASPxMemo();
-            cdx.id = 13;            
+            cdx.id = 12;            
             cdx.nombre = "ASPxMemo";
             lElement.Add(cdx);
 

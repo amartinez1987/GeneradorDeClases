@@ -10,7 +10,7 @@ namespace GeneradorClases.Entity.Model
     {
         private const string alias = "txt";
         public string nombreAtributo { get; set; }
-        bool sinSpinButton { get; set; }
+        
         public Control_ASPxSpinEdit(string nombreAtributo, bool sinSpinButton = false)
         {
             this.id = 1;
@@ -22,6 +22,8 @@ namespace GeneradorClases.Entity.Model
         public Control_ASPxSpinEdit()
         {
             // TODO: Complete member initialization
+            this.id = 1;
+            this.nombre = "ASPxSpinEdit";
         }
 
         public List<string> GetCodeBehindForm()

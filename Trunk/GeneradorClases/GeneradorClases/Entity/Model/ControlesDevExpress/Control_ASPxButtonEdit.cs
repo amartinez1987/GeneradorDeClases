@@ -8,9 +8,8 @@ namespace GeneradorClases.Entity.Model
 {
     public class Control_ASPxButtonEdit:Control
     {        
-                 private const string alias = "txt";
-        public string nombreAtributo { get; set; }
-        bool sinSpinButton { get; set; }
+        private const string alias = "txt";
+        public string nombreAtributo { get; set; }        
         public Control_ASPxButtonEdit(string nombreAtributo)
         {
             this.id = 12;
@@ -21,6 +20,8 @@ namespace GeneradorClases.Entity.Model
         public Control_ASPxButtonEdit()
         {
             // TODO: Complete member initialization
+            this.id = 12;
+            this.nombre = "ASPxButtonEdit";
         }
 
         public List<string> GetCodeBehindForm()

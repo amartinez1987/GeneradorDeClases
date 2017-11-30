@@ -21,6 +21,8 @@ namespace GeneradorClases.Entity.Model
         public Control_ASPxUploadControl()
         {
             // TODO: Complete member initialization
+            this.id = 11;
+            this.nombre = "ASPxUploadControl";
         }
 
         public List<string> GetCodeBehindForm()

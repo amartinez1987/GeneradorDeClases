@@ -9,8 +9,7 @@ namespace GeneradorClases.Entity.Model
     public class Control_ASPxDateEdit:Control
     {
         private  const string alias = "txt";
-        public string nombreAtributo { get; set; }
-        public string formatoFecha { get; set; }
+        public string nombreAtributo { get; set; }        
 
         public Control_ASPxDateEdit(string nombreAtributo, string formatoFecha = "")
         {
@@ -23,6 +22,8 @@ namespace GeneradorClases.Entity.Model
         public Control_ASPxDateEdit()
         {
             // TODO: Complete member initialization
+            this.id = 3;
+            this.nombre = "ASPxDateEdit";
         }
 
         public List<string> GetCodeBehindForm()

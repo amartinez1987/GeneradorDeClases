@@ -10,7 +10,7 @@ namespace GeneradorClases.Entity.Model
     {     
         private const string alias = "txt";
         public string nombreAtributo { get; set; }
-        bool sinSpinButton { get; set; }
+        
         public Control_ASPxMemo(string nombreAtributo)
         {
             this.id = 13;
@@ -21,6 +21,8 @@ namespace GeneradorClases.Entity.Model
         public Control_ASPxMemo()
         {
             // TODO: Complete member initialization
+            this.id = 13;
+            this.nombre = "ASPxMemo";
         }
 
 

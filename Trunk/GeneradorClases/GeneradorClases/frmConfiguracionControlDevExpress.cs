@@ -14,7 +14,7 @@ namespace GeneradorClases
 {
     public partial class frmConfiguracionControlDevExpress : Form
     {
-        private ControlesDevExpress cDx;
+        private GeneradorClases.Entity.Model.Control cDx;
         private List<string> list;
         private ConecionServidorViewModel model;
 
@@ -27,13 +27,15 @@ namespace GeneradorClases
 
 
 
-        public frmConfiguracionControlDevExpress(ref ControlesDevExpress cDx, List<string> list, ConecionServidorViewModel model)
+        public frmConfiguracionControlDevExpress(ref GeneradorClases.Entity.Model.Control cDx, List<string> list, ConecionServidorViewModel model)
         {
             // TODO: Complete member initialization
             InitializeComponent();
             this.cDx = cDx;
             this.list = list;
             this.model = model;
+
+
             switch (cDx.nombre)
             {
                 case "ASPxComboBox":
@@ -87,10 +89,12 @@ namespace GeneradorClases
                 {
                     cDx.tabla = cmbTabla.SelectedItem.ToString();
                     cDx.dataSource = cDx.tabla + "Controller.get" + cDx.tabla + "();";
+                    cDx.textField = (cmbTextoCampo.SelectedItem as DatosColumna).nombreColumna;
+                    cDx.valueField = (cmbValorCampo.SelectedItem as DatosColumna).nombreColumna;
                 }
                 cDx.sinSpinButton = chSinSpinButton.Checked;
-                cDx.textField = (cmbTextoCampo.SelectedItem as DatosColumna).nombreColumna;
-                cDx.valueField = (cmbValorCampo.SelectedItem as DatosColumna).nombreColumna;
+              
+                cDx.formatoFecha = txtFormatoFecha.Text;
             }
             catch 
             {
@@ -117,6 +121,11 @@ namespace GeneradorClases
             {
                 
             }
+
+        }
+
+        private void frmConfiguracionControlDevExpress_Load(object sender, EventArgs e)
+        {
 
         }
 

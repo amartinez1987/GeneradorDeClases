@@ -9,10 +9,7 @@ namespace GeneradorClases.Entity.Model
     public class Control_ASPxComboBox:Control
     {
         private  const string alias = "cmb";
-        public string nombreAtributo { get; set; }
-        public string tabla { get; set; }
-        public string textField { get; set; }
-        public string valueField { get; set; }
+        public string nombreAtributo { get; set; }        
 
         public Control_ASPxComboBox(string nombreAtributo, string tabla = "", string textField = "", string valueField = "")
         {
@@ -26,6 +23,8 @@ namespace GeneradorClases.Entity.Model
 
         public Control_ASPxComboBox()
         {
+            this.id = 0;
+            this.nombre = "ASPxComboBox";
             // TODO: Complete member initialization
         }
 
@@ -53,7 +52,7 @@ namespace GeneradorClases.Entity.Model
             lineasDocumento.Add(string.Format("List<{0}ViewModel> lista = {0}Controller.getLista{0}();", this.tabla));
             lineasDocumento.Add(string.Format("{0}{1}.DataSource = lista;", alias, nombreAtributo));
             lineasDocumento.Add(string.Format("{0}{1}.TextField = \"{2}\";", alias, nombreAtributo, this.textField));
-            lineasDocumento.Add(string.Format("{0}{1}.TextField = \"{2}\";", alias, nombreAtributo, this.valueField));
+            lineasDocumento.Add(string.Format("{0}{1}.ValueField = \"{2}\";", alias, nombreAtributo, this.valueField));
             lineasDocumento.Add("}");
 
             return lineasDocumento;

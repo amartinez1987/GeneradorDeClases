@@ -68,7 +68,6 @@
     </Compile>
     <Compile Include="Entity\Model\ConecionServidorViewModel.cs" />
     <Compile Include="Entity\Model\Control.cs" />
-    <Compile Include="Entity\Model\ControlesDevExpress.cs" />
     <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxButtonEdit.cs" />
     <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxCheckBox.cs" />
     <Compile Include="Entity\Model\ControlesDevExpress\Control_ASPxCheckBoxList.cs" />

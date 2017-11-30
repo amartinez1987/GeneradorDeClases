@@ -21,6 +21,8 @@ namespace GeneradorClases.Entity.Model
         public Control_ASPxTextBox()
         {
             // TODO: Complete member initialization
+            this.id = 2;
+            this.nombre = "ASPxTextBox";
         }
 
         public List<string> GetCodeBehindForm()

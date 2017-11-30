@@ -10,13 +10,13 @@ namespace GeneradorClases.Entity.Controller
 {
     public class GenerarFormulariosDevExpress
     {
-        public static Control getControlesDevExprex(string tipoDatoColumna ="", string nombreAtributo = "")
+        public static Control getControlesDevExprex(string tipoDatoColumna = "", string nombreAtributo = "")
         {
             switch (tipoDatoColumna)
             {
 
                 case "decimal":
-                case "money":                   
+                case "money":
                 case "numeric":
                 case "smallint":
                 case "tinyint":
@@ -24,14 +24,14 @@ namespace GeneradorClases.Entity.Controller
                 case "float":
                 case "real":
                 case "bigint":
-                    return  new Control_ASPxDateEdit(nombreAtributo);
+                    return new Control_ASPxDateEdit(nombreAtributo);
                     break;
                 case "ntext":
                 case "nvarchar":
                 case "char":
                 case "nchar":
                 case "varchar":
-                    return new Control_ASPxComboBox( nombreAtributo);
+                    return new Control_ASPxComboBox(nombreAtributo);
                     break;
                 case "datetime":
                     return new Control_ASPxDateEdit(nombreAtributo);
@@ -45,6 +45,57 @@ namespace GeneradorClases.Entity.Controller
 
             }
         }
+
+        public static Control getControlDevExprex(int tipoControlId, Control tipoControl)
+        {
+            switch (tipoControlId)
+            {
+                case 0:
+                    return new Control_ASPxComboBox() { dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 1:
+                    return new Control_ASPxSpinEdit() { dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 2:
+                    return new Control_ASPxTextBox() { dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 3:
+                    return new Control_ASPxDateEdit(){dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 4:
+                    return new Control_ASPxCheckBox(){dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 5:
+                    return new Control_ASPxRadioButton(){dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 6:
+                    return new Control_ASPxCheckBoxList(){dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 7:
+                    return new Control_ASPxRadioButtonList(){dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 8:
+                    return new Control_ASPxListBox(){dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 9:
+                    return new Control_ASPxTimeEdit(){dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 10:
+                    return new Control_ASPxUploadControl(){dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 11:
+                    return new Control_ASPxButtonEdit(){dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;
+                case 12:
+                    return new Control_ASPxMemo(){dataSource = tipoControl.dataSource, formatoFecha = tipoControl.formatoFecha, nombreAtributo = tipoControl.nombre, sinSpinButton = tipoControl.sinSpinButton, tabla = tipoControl.tabla, textField = tipoControl.tabla, valueField = tipoControl.valueField };
+                    break;                
+                default:
+                    return null;
+                    break;
+            }
+        
+        }
+
         public static void generarFormularioAscx(List<DatosColumna> lDct, string direccionDestino, string nombreTablaAClase, string nombreProyecto)
         {
 
@@ -66,7 +117,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("");
             foreach (DatosColumna item in lDct)
             {
-                ControlesDevExpress cdx = (item.tipoControl as ControlesDevExpress);
+                Control cdx = (item.tipoControl as Control);
                 string nombreAtributo = getInicialMayuscula(item.nombreColumna);
                 switch (cdx != null ? cdx.nombre : "")
                 {
@@ -162,7 +213,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("{");
             foreach (DatosColumna item in lDct)
             {
-                ControlesDevExpress cdx = (item.tipoControl as ControlesDevExpress);
+                Control cdx = (item.tipoControl as Control);
                 string nombreAtributo = getInicialMayuscula(item.nombreColumna);
                 switch (cdx != null ? cdx.nombre : "")
                 {
@@ -172,7 +223,7 @@ namespace GeneradorClases.Entity.Controller
                         break;
 
                     case "ASPxSpinEdit":
-                        lineasDocumento.AddRange(new Control_ASPxSpinEdit(nombreAtributo,cdx.sinSpinButton).GetCodeBehindForm());
+                        lineasDocumento.AddRange(new Control_ASPxSpinEdit(nombreAtributo, cdx.sinSpinButton).GetCodeBehindForm());
                         break;
 
                     case "ASPxTextBox":

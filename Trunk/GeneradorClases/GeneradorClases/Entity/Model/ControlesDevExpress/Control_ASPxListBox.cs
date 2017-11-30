@@ -10,7 +10,7 @@ namespace GeneradorClases.Entity.Model
     {
                private const string alias = "lb";
         public string nombreAtributo { get; set; }
-        bool sinSpinButton { get; set; }
+        
         public Control_ASPxListBox(string nombreAtributo)
         {
             this.id = 8;
@@ -21,6 +21,8 @@ namespace GeneradorClases.Entity.Model
         public Control_ASPxListBox()
         {
             // TODO: Complete member initialization
+            this.id = 8;
+            this.nombre = "ASPxListBox";
         }
 
         public List<string> GetCodeBehindForm()

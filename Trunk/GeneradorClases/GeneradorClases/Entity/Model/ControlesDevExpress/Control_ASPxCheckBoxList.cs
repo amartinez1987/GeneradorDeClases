@@ -10,8 +10,7 @@ namespace GeneradorClases.Entity.Model
     {
         
         private const string alias = "chL";
-        public string nombreAtributo { get; set; }
-        bool sinSpinButton { get; set; }
+        public string nombreAtributo { get; set; }        
         public Control_ASPxCheckBoxList(string nombreAtributo)
         {
             this.id = 6;
@@ -22,6 +21,8 @@ namespace GeneradorClases.Entity.Model
         public Control_ASPxCheckBoxList()
         {
             // TODO: Complete member initialization
+            this.id = 6;
+            this.nombre = "ASPxCheckBoxList";
         }
 
         public List<string> GetCodeBehindForm()
