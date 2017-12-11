@@ -118,5 +118,14 @@ namespace GeneradorClases
             childFormNumber++;
             childForm.Show();
         }
+
+        private void generarTrazabilidadYDesencadenadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGeneradorTrazabilidadDesencadenadores childForm = new frmGeneradorTrazabilidadDesencadenadores();
+            childForm.MdiParent = this;
+            childForm.Text = "Generador Trazabilidad y Desencadenadores ";
+            childFormNumber++;
+            childForm.Show();
+        }
     }
 }

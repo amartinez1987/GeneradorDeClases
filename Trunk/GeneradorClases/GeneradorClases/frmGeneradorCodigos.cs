@@ -28,17 +28,7 @@ namespace GeneradorClases
             cmbConecciones.DataSource = ConecionServidorController.getListConeccionesServidor();
             cmbConecciones.ValueMember = "id";
             cmbConecciones.DisplayMember = "nombreConeccion";
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listOpciones_Click(object sender, EventArgs e)
-        {
-            
-        }
+        }    
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
@@ -74,11 +64,6 @@ namespace GeneradorClases
             MessageBox.Show("Proceso de Generación Completado.");
         }
 
-        private void listOpciones_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnEstados_Click(object sender, EventArgs e)
         {
             foreach (string item in listOpciones.CheckedItems)
@@ -96,11 +81,6 @@ namespace GeneradorClases
             ConecionServidorViewModel model = (cmbConecciones.SelectedItem as ConecionServidorViewModel);
             string error = "";
             cmbTabla.DataSource = MetodosGeneralesController.getListaTablasBaseDatos(model.servidor, model.baseDatos, model.usuario, model.contrasena, ref error);            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCambiarDirectorio_Click(object sender, EventArgs e)

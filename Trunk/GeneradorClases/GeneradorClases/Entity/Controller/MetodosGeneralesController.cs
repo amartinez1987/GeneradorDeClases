@@ -56,7 +56,7 @@ namespace GeneradorClases.Entity.Controller
             }
         }
 
-        internal static object getColumnasTablaBaseDato(string nombreServidor, string baseDatos, string nombreUsuario, string contrasena, string tabla, ref string error)
+        internal static List<DatosColumna> getColumnasTablaBaseDato(string nombreServidor, string baseDatos, string nombreUsuario, string contrasena, string tabla, ref string error)
         {
             string cadenaConeccion = string.Format("Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}", nombreServidor, baseDatos, nombreUsuario, contrasena);
             List<DatosColumna> listaDatosColumna = new List<DatosColumna>();
@@ -65,7 +65,7 @@ namespace GeneradorClases.Entity.Controller
                 try
                 {
                     con.Open();
-                    SqlCommand comand = new SqlCommand(string.Format("select syscolumns.name AS nombreColumna , systypes.name AS tipoDatoColumna , syscolumns.isnullable  as esNulable FROM     {0}.dbo.syscolumns INNER JOIN {0}.dbo.sysobjects ON syscolumns.id = sysobjects.id INNER JOIN {0}.dbo.systypes ON systypes.xtype = syscolumns.xtype where  sysobjects.name = '{1}'", baseDatos, tabla), con);
+                    SqlCommand comand = new SqlCommand(string.Format("select syscolumns.name AS nombreColumna , systypes.name AS tipoDatoColumna , syscolumns.isnullable  as esNulable , syscolumns.prec ,  syscolumns.xscale FROM     {0}.dbo.syscolumns INNER JOIN {0}.dbo.sysobjects ON syscolumns.id = sysobjects.id INNER JOIN {0}.dbo.systypes ON systypes.xtype = syscolumns.xtype where  sysobjects.name = '{1}'", baseDatos, tabla), con);
                     SqlDataReader reader = comand.ExecuteReader();
                     while (reader.Read())
                     {
@@ -73,6 +73,8 @@ namespace GeneradorClases.Entity.Controller
                         dtC.nombreColumna = reader["nombreColumna"].ToString();
                         dtC.tipoDatoColumna = reader["tipoDatoColumna"].ToString();
                         dtC.esNulable = reader["esNulable"].ToString();
+                        dtC.prec = int.Parse(reader["prec"].ToString());
+                        dtC.xscale = int.Parse( reader["xscale"].ToString());
                         listaDatosColumna.Add(dtC);
                     }
                     con.Close();

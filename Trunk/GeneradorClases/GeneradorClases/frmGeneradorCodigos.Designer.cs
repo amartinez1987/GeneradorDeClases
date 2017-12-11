@@ -139,8 +139,6 @@
             this.listOpciones.Name = "listOpciones";
             this.listOpciones.Size = new System.Drawing.Size(172, 184);
             this.listOpciones.TabIndex = 7;
-            this.listOpciones.Click += new System.EventHandler(this.listOpciones_Click);
-            this.listOpciones.SelectedIndexChanged += new System.EventHandler(this.listOpciones_SelectedIndexChanged);
             // 
             // btnEstados
             // 
@@ -160,7 +158,6 @@
             this.lblDireccionDatos.Size = new System.Drawing.Size(105, 13);
             this.lblDireccionDatos.TabIndex = 9;
             this.lblDireccionDatos.Text = "Directorio a Guardar:";
-            this.lblDireccionDatos.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtDirectorioDestino
             // 

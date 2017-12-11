@@ -33,10 +33,11 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarCodigosFunetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.generarCodigosFunetesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarTrazabilidadYDesencadenadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +56,8 @@
             // 
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
-            this.generarCodigosFunetesToolStripMenuItem});
+            this.generarCodigosFunetesToolStripMenuItem,
+            this.generarTrazabilidadYDesencadenadoresToolStripMenuItem});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(81, 20);
@@ -67,9 +69,16 @@
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
             this.newToolStripMenuItem.Text = "Administrar Conecciones";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
+            // 
+            // generarCodigosFunetesToolStripMenuItem
+            // 
+            this.generarCodigosFunetesToolStripMenuItem.Name = "generarCodigosFunetesToolStripMenuItem";
+            this.generarCodigosFunetesToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.generarCodigosFunetesToolStripMenuItem.Text = "Generar Codigos Funetes";
+            this.generarCodigosFunetesToolStripMenuItem.Click += new System.EventHandler(this.generarCodigosFunetesToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -87,12 +96,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // generarCodigosFunetesToolStripMenuItem
+            // generarTrazabilidadYDesencadenadoresToolStripMenuItem
             // 
-            this.generarCodigosFunetesToolStripMenuItem.Name = "generarCodigosFunetesToolStripMenuItem";
-            this.generarCodigosFunetesToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.generarCodigosFunetesToolStripMenuItem.Text = "Generar Codigos Funetes";
-            this.generarCodigosFunetesToolStripMenuItem.Click += new System.EventHandler(this.generarCodigosFunetesToolStripMenuItem_Click);
+            this.generarTrazabilidadYDesencadenadoresToolStripMenuItem.Name = "generarTrazabilidadYDesencadenadoresToolStripMenuItem";
+            this.generarTrazabilidadYDesencadenadoresToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.generarTrazabilidadYDesencadenadoresToolStripMenuItem.Text = "Generar Trazabilidad y Desencadenadores";
+            this.generarTrazabilidadYDesencadenadoresToolStripMenuItem.Click += new System.EventHandler(this.generarTrazabilidadYDesencadenadoresToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -123,6 +132,7 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem generarCodigosFunetesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generarTrazabilidadYDesencadenadoresToolStripMenuItem;
     }
 }
 
