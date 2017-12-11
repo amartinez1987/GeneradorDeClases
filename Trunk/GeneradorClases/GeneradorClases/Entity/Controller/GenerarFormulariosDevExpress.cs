@@ -299,5 +299,103 @@ namespace GeneradorClases.Entity.Controller
             return caracterInicial + frase;
 
         }
+
+        internal static void generarListar(List<DatosColumna> lDct, string direccionDestino, string nombreTablaAClase, string nombreProyecto)
+        {
+            if (!Directory.Exists(direccionDestino))
+            {
+                System.IO.Directory.CreateDirectory(direccionDestino);
+            }
+
+            string directorioModelo = direccionDestino + "\\ASCX";
+            string nombreClaseViewModel = getNombreClase(nombreTablaAClase);
+            List<string> lineasDocumento = new List<string>();
+
+            lineasDocumento.Add(string.Format("using System;"));
+            lineasDocumento.Add(string.Format("using System.Collections.Generic;"));
+            lineasDocumento.Add(string.Format("using System.Configuration;"));
+            lineasDocumento.Add(string.Format("using System.IO;"));
+            lineasDocumento.Add(string.Format("using System.Linq;"));
+            lineasDocumento.Add(string.Format("using System.Net;"));
+            lineasDocumento.Add(string.Format("using System.Web;"));
+            lineasDocumento.Add(string.Format("using System.Web.UI;"));
+            lineasDocumento.Add(string.Format("using System.Web.UI.WebControls;"));
+            lineasDocumento.Add(string.Format("using System.Web.UI.WebControls;"));
+            lineasDocumento.Add(string.Format("namespace {0}.frm{0}", nombreProyecto, nombreTablaAClase));
+            lineasDocumento.Add("{");
+            lineasDocumento.Add(string.Format("public partial class frm{0} : System.Web.UI.UserControl", nombreTablaAClase));
+            lineasDocumento.Add("{");
+            foreach (DatosColumna item in lDct)
+            {
+                Control cdx = (item.tipoControl as Control);
+                string nombreAtributo = getInicialMayuscula(item.nombreColumna);
+                switch (cdx != null ? cdx.nombre : "")
+                {
+                    case "ASPxComboBox":
+                        lineasDocumento.AddRange(new Control_ASPxComboBox(nombreAtributo, cdx.tabla, cdx.textField, cdx.valueField).GetCodeBehindForm());
+
+                        break;
+
+                    case "ASPxSpinEdit":
+                        lineasDocumento.AddRange(new Control_ASPxSpinEdit(nombreAtributo, cdx.sinSpinButton).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxTextBox":
+                        lineasDocumento.AddRange(new Control_ASPxTextBox(nombreAtributo).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxDateEdit":
+                        lineasDocumento.AddRange(new Control_ASPxDateEdit(nombreAtributo, cdx.formatoFecha).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxCheckBox":
+                        lineasDocumento.AddRange(new Control_ASPxCheckBox(nombreAtributo).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxRadioButton":
+                        lineasDocumento.AddRange(new Control_ASPxRadioButton(nombreAtributo).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxCheckBoxList":
+                        lineasDocumento.AddRange(new Control_ASPxCheckBoxList(nombreAtributo).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxRadioButtonList":
+                        lineasDocumento.AddRange(new Control_ASPxRadioButtonList(nombreAtributo).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxListBox":
+                        lineasDocumento.AddRange(new Control_ASPxListBox(nombreAtributo).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxTimeEdit":
+                        lineasDocumento.AddRange(new Control_ASPxTimeEdit(nombreAtributo).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxUploadControl":
+                        lineasDocumento.AddRange(new Control_ASPxUploadControl(nombreAtributo).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxButtonEdit":
+                        lineasDocumento.AddRange(new Control_ASPxButtonEdit(nombreAtributo).GetCodeBehindForm());
+                        break;
+
+                    case "ASPxMemo":
+                        lineasDocumento.AddRange(new Control_ASPxMemo(nombreAtributo).GetCodeBehindForm());
+                        break;
+                }
+
+            }
+            lineasDocumento.Add("}");
+            lineasDocumento.Add("}");
+
+            lineasDocumento.Add("");
+            if (!Directory.Exists(directorioModelo))
+            {
+                System.IO.Directory.CreateDirectory(directorioModelo);
+            }
+
+            File.WriteAllLines(directorioModelo + "\\" + nombreClaseViewModel + ".ascx.cs", lineasDocumento);
+        }
     }
 }

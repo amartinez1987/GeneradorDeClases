@@ -158,6 +158,21 @@ namespace GeneradorClases
 
                         }
 
+                        if (op == "listar")
+                        {
+                            List<DatosColumna> l = (dtColumnas.DataSource as List<DatosColumna>);
+                            foreach (DatosColumna item in l)
+                            {
+                                if (item.tipoControlId != item.tipoControl.id)
+                                {
+                                    item.tipoControl = GenerarFormulariosDevExpress.getControlDevExprex(item.tipoControlId, item.tipoControl);
+                                }
+                            }
+                            GenerarFormulariosDevExpress.generarListar(l, txtDirectorioDestino.Text, cmbTabla.SelectedItem.ToString(), txtNombreProyeco.Text);
+                          
+
+                        }
+
                         break;
                 }
 
