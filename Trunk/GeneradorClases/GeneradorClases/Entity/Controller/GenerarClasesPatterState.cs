@@ -50,6 +50,7 @@ namespace GeneradorClases.Entity.Controller
                             lineasDocumento.Add("{");
                             lineasDocumento.Add("Result resul = new Result();");
                             lineasDocumento.Add("resul.error = \"No se puede realizar esta operación en el estado actual del registro\";");
+                            lineasDocumento.Add("resul.tipoAlerta = \"Info\";");
                             lineasDocumento.Add("return resul;");
                             lineasDocumento.Add("}");
                         }
