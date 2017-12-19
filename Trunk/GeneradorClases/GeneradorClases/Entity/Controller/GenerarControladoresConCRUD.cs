@@ -51,23 +51,20 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("}");
             lineasDocumento.Add("");
             lineasDocumento.Add(string.Format("public static {0} get{1}()", nombreClaseViewModel, nombreTablaAClase));
-            lineasDocumento.Add("{");
-            lineasDocumento.Add(string.Format("using ({0} entity = new {0}())", nombreEntidad));
-            lineasDocumento.Add("{");
+            lineasDocumento.Add("{");            
             lineasDocumento.Add(string.Format("using ({0} entity = new {0}())", nombreEntidad));
             lineasDocumento.Add("{");
             lineasDocumento.Add(string.Format("var l = from {0} in entity.{1}", nombreTablaAClase.ToLower(), nombreTablaAClase));
             lineasDocumento.Add(string.Format("select new {0}", nombreClaseViewModel) + "{" + listadoAtributosSelect + "};");
             lineasDocumento.Add("return l.SingleOrDefault();");
-            lineasDocumento.Add("}");
-            lineasDocumento.Add("}");
+            lineasDocumento.Add("}");            
             lineasDocumento.Add("}");
 
             lineasDocumento.Add("");
             //guardar
             lineasDocumento.Add(string.Format("public static Result guardar{0}({0} registro)", nombreTablaAClase));
             lineasDocumento.Add("{");
-            lineasDocumento.Add("Result result = new validarAtributos(registro);");
+            lineasDocumento.Add("Result result = validarAtributos(registro);");
             lineasDocumento.Add("if (result.error != null && result.error != \"\")");
             lineasDocumento.Add("{");
             lineasDocumento.Add("return result;");
@@ -78,7 +75,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("if (existeRegistro(registro.id))");
             lineasDocumento.Add("{");
             lineasDocumento.Add(string.Format("int {0}Id = registro.id;", nombreTablaAClase.ToLower()));
-            lineasDocumento.Add(string.Format("{0} registroEditar = entity.{1}.Where(x => x.id == {2}Id).SingleOrDefault();", nombreClaseViewModel, nombreTablaAClase, nombreTablaAClase.ToLower()));
+            lineasDocumento.Add(string.Format("{0} registroEditar = entity.{0}.Where(x => x.id == {1}Id).SingleOrDefault();",  nombreTablaAClase, nombreTablaAClase.ToLower()));
             lineasDocumento.Add("entity.Entry(registroEditar).CurrentValues.SetValues(registro);");                        
             lineasDocumento.Add("try");
             lineasDocumento.Add("{");
@@ -117,6 +114,7 @@ namespace GeneradorClases.Entity.Controller
                 lineasDocumento.Add("return new Result { error = \"Texto Validación\" };");
                 lineasDocumento.Add("}");
             }
+            lineasDocumento.Add("return new Result() { error = \"\" };");
             lineasDocumento.Add("}");
             //finvalidar
             //Existe
