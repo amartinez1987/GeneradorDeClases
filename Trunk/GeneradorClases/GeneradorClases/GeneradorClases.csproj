@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Entity\Controller\ConecionServidorController.cs" />
     <Compile Include="Entity\Controller\GeneradorClasesViewModel.cs" />
+    <Compile Include="Entity\Controller\GeneradorCrudBoostrap.cs" />
     <Compile Include="Entity\Controller\GenerarClasesPatterState.cs" />
     <Compile Include="Entity\Controller\GenerarControladoresConCRUD.cs" />
     <Compile Include="Entity\Controller\generarControladoresSinCRUD.cs" />
