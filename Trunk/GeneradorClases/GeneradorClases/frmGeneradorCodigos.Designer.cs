@@ -37,8 +37,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerar = new System.Windows.Forms.Button();
-            this.listOpciones = new System.Windows.Forms.CheckedListBox();
-            this.btnEstados = new System.Windows.Forms.Button();
             this.lblDireccionDatos = new System.Windows.Forms.Label();
             this.txtDirectorioDestino = new System.Windows.Forms.TextBox();
             this.btnCambiarDirectorio = new System.Windows.Forms.Button();
@@ -48,6 +46,8 @@
             this.txtNombreEntidad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnOperacionesPatronState = new System.Windows.Forms.Button();
+            this.btnEstados = new System.Windows.Forms.Button();
+            this.listOpciones = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtColumnas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,29 +127,6 @@
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
-            // listOpciones
-            // 
-            this.listOpciones.FormattingEnabled = true;
-            this.listOpciones.Items.AddRange(new object[] {
-            "ClasesViewModel",
-            "Controlador Con CRUD",
-            "Controlador Sin CRUD",
-            "PatterState"});
-            this.listOpciones.Location = new System.Drawing.Point(510, 163);
-            this.listOpciones.Name = "listOpciones";
-            this.listOpciones.Size = new System.Drawing.Size(172, 184);
-            this.listOpciones.TabIndex = 7;
-            // 
-            // btnEstados
-            // 
-            this.btnEstados.Location = new System.Drawing.Point(510, 383);
-            this.btnEstados.Name = "btnEstados";
-            this.btnEstados.Size = new System.Drawing.Size(172, 23);
-            this.btnEstados.TabIndex = 8;
-            this.btnEstados.Text = "Agregar Estados del Patron";
-            this.btnEstados.UseVisualStyleBackColor = true;
-            this.btnEstados.Click += new System.EventHandler(this.btnEstados_Click);
-            // 
             // lblDireccionDatos
             // 
             this.lblDireccionDatos.AutoSize = true;
@@ -211,13 +188,34 @@
             // 
             // btnOperacionesPatronState
             // 
-            this.btnOperacionesPatronState.Location = new System.Drawing.Point(510, 353);
+            this.btnOperacionesPatronState.Location = new System.Drawing.Point(507, 353);
             this.btnOperacionesPatronState.Name = "btnOperacionesPatronState";
             this.btnOperacionesPatronState.Size = new System.Drawing.Size(172, 23);
-            this.btnOperacionesPatronState.TabIndex = 16;
+            this.btnOperacionesPatronState.TabIndex = 35;
             this.btnOperacionesPatronState.Text = "Operaciones Patron";
             this.btnOperacionesPatronState.UseVisualStyleBackColor = true;
-            this.btnOperacionesPatronState.Click += new System.EventHandler(this.btnOperacionesPatronState_Click);
+            // 
+            // btnEstados
+            // 
+            this.btnEstados.Location = new System.Drawing.Point(507, 383);
+            this.btnEstados.Name = "btnEstados";
+            this.btnEstados.Size = new System.Drawing.Size(172, 23);
+            this.btnEstados.TabIndex = 34;
+            this.btnEstados.Text = "Agregar Estados del Patron";
+            this.btnEstados.UseVisualStyleBackColor = true;
+            // 
+            // listOpciones
+            // 
+            this.listOpciones.FormattingEnabled = true;
+            this.listOpciones.Items.AddRange(new object[] {
+            "ClasesViewModel",
+            "Controlador Con CRUD",
+            "Controlador Sin CRUD",
+            "PatterState"});
+            this.listOpciones.Location = new System.Drawing.Point(507, 163);
+            this.listOpciones.Name = "listOpciones";
+            this.listOpciones.Size = new System.Drawing.Size(172, 184);
+            this.listOpciones.TabIndex = 33;
             // 
             // frmGeneradorCodigos
             // 
@@ -225,6 +223,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 443);
             this.Controls.Add(this.btnOperacionesPatronState);
+            this.Controls.Add(this.btnEstados);
+            this.Controls.Add(this.listOpciones);
             this.Controls.Add(this.txtNombreEntidad);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombreProyeco);
@@ -232,8 +232,6 @@
             this.Controls.Add(this.btnCambiarDirectorio);
             this.Controls.Add(this.txtDirectorioDestino);
             this.Controls.Add(this.lblDireccionDatos);
-            this.Controls.Add(this.btnEstados);
-            this.Controls.Add(this.listOpciones);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dtColumnas);
             this.Controls.Add(this.cmbTabla);
@@ -242,6 +240,7 @@
             this.Controls.Add(this.lblNombreConeccion);
             this.Name = "frmGeneradorCodigos";
             this.Text = "frmGeneradorCodigos";
+            this.Load += new System.EventHandler(this.frmGeneradorCodigos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtColumnas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -256,8 +255,6 @@
         private System.Windows.Forms.ComboBox cmbTabla;
         private System.Windows.Forms.DataGridView dtColumnas;
         private System.Windows.Forms.Button btnGenerar;
-        private System.Windows.Forms.CheckedListBox listOpciones;
-        private System.Windows.Forms.Button btnEstados;
         private System.Windows.Forms.Label lblDireccionDatos;
         private System.Windows.Forms.TextBox txtDirectorioDestino;
         private System.Windows.Forms.Button btnCambiarDirectorio;
@@ -270,5 +267,7 @@
         private System.Windows.Forms.TextBox txtNombreEntidad;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnOperacionesPatronState;
+        private System.Windows.Forms.Button btnEstados;
+        private System.Windows.Forms.CheckedListBox listOpciones;
     }
 }

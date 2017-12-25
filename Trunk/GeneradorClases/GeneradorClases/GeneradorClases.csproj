@@ -61,6 +61,7 @@
     <Compile Include="Entity\Controller\GenerarControladoresConCRUD.cs" />
     <Compile Include="Entity\Controller\generarControladoresSinCRUD.cs" />
     <Compile Include="Entity\Controller\GenerarTrazabilidad.cs" />
+    <Compile Include="Entity\Controller\GenerarWebMethod.cs" />
     <Compile Include="Entity\Controller\MetodosGeneralesController.cs" />
     <Compile Include="Entity\Controller\vSysDataBaseController.cs" />
     <Compile Include="Entity\Model\Class1.cs" />
@@ -112,6 +113,12 @@
     <Compile Include="frmGeneradorCodigos.Designer.cs">
       <DependentUpon>frmGeneradorCodigos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGeneradorFronEndAndWebMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeneradorFronEndAndWebMethod.Designer.cs">
+      <DependentUpon>frmGeneradorFronEndAndWebMethod.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGeneradorTrazabilidadDesencadenadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGeneradorCodigos.resx">
       <DependentUpon>frmGeneradorCodigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGeneradorFronEndAndWebMethod.resx">
+      <DependentUpon>frmGeneradorFronEndAndWebMethod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGeneradorTrazabilidadDesencadenadores.resx">
       <DependentUpon>frmGeneradorTrazabilidadDesencadenadores.cs</DependentUpon>

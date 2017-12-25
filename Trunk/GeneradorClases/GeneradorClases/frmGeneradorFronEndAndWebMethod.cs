@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +12,10 @@ using System.Windows.Forms;
 
 namespace GeneradorClases
 {
-    public partial class frmGeneradorCodigos : Form
+    public partial class frmGeneradorFronEndAndWebMethod : Form
     {
-        List<string> listaEstados = new List<string>();
-        List<string> listaOperacionesPatron = new List<string>();
-        public frmGeneradorCodigos()
+
+        public frmGeneradorFronEndAndWebMethod()
         {
             InitializeComponent();
             cargarConecciones();
@@ -35,29 +33,11 @@ namespace GeneradorClases
             string error = "";
             foreach (string item in listOpciones.CheckedItems)
             {
-                if (item == "ClasesViewModel")
+                if (item == "Simple Boostrap WebMethod")
                 {
-                    GeneradorClasesViewModel.generarClasesViewModel(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
-                }
-
-                if (item == "Controlador Sin CRUD")
-                {
-                    generarControladoresSinCRUD.generarClasesController(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
-                }
-
-                if (item == "Controlador Con CRUD")
-                {
-                    GenerarControladoresConCRUD.generarClasesController(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
-                }
-
-                if (item == "PatterState")
-                {
-                    if (listaEstados.Count < 1)
-                    {
-                        MessageBox.Show("Defina los estados que puede tener el patron.");
-                        return;
-                    }
-                    GenerarClasesPatterState.generarClases(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, listaEstados, listaOperacionesPatron, ref error); ;
+                    GenerarWebMethod.generarWebMethodAspx(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), txtDirectorioDestino.Text, ref error);
+                    GenerarWebMethod.generarWebMethodAspxDesig(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(),  txtDirectorioDestino.Text, ref error);
+                    GenerarWebMethod.generarWebMethodCs(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
                 }
             }
 
@@ -68,10 +48,9 @@ namespace GeneradorClases
         {
             foreach (string item in listOpciones.CheckedItems)
             {
-                if (item == "PatterState")
+                if (item == "Simple Boostrap WebMethod")
                 {
-                    frmEstadosPatron frmEstados = new frmEstadosPatron(ref listaEstados);
-                    DialogResult res = frmEstados.ShowDialog();
+                  
                 }
             }
         }
@@ -102,18 +81,9 @@ namespace GeneradorClases
         }
 
         private void btnOperacionesPatronState_Click(object sender, EventArgs e)
-        {
-            foreach (string item in listOpciones.CheckedItems)
-            {
-                if (item == "PatterState")
-                {
-                    frmEstadosPatron frmEstados = new frmEstadosPatron(ref listaOperacionesPatron);
-                    frmEstados.Text = "Operaciones del Patron";
-                    DialogResult res = frmEstados.ShowDialog();
-                }
-            }
+        {           
         }
-        private void frmGeneradorCodigos_Load(object sender, EventArgs e)
+        private void frmGeneradorFronEndAndWebMethod_Load(object sender, EventArgs e)
         {
 
         }

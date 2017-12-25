@@ -60,3 +60,4 @@ F:\GeneradorClaseYTablas\GeneradorDeClases\Trunk\GeneradorClases\GeneradorClases
 F:\GeneradorClaseYTablas\GeneradorDeClases\Trunk\GeneradorClases\GeneradorClases\obj\Debug\GeneradorClases.Principal.resources
 F:\GeneradorClaseYTablas\GeneradorDeClases\Trunk\GeneradorClases\GeneradorClases\obj\Debug\GeneradorClases.Properties.Resources.resources
 F:\GeneradorClaseYTablas\GeneradorDeClases\Trunk\GeneradorClases\GeneradorClases\obj\Debug\GeneradorClases.csproj.GenerateResource.Cache
+F:\GeneradorClaseYTablas\GeneradorDeClases\Trunk\GeneradorClases\GeneradorClases\obj\Debug\GeneradorClases.frmGeneradorFronEndAndWebMethod.resources

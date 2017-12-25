@@ -127,5 +127,14 @@ namespace GeneradorClases
             childFormNumber++;
             childForm.Show();
         }
+
+        private void generarSimpleFormYWebMethodBoosTrapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGeneradorFronEndAndWebMethod childForm = new frmGeneradorFronEndAndWebMethod();
+            childForm.MdiParent = this;
+            childForm.Text = "Simple Form boosstrap y WebMethos";
+            childFormNumber++;
+            childForm.Show();
+        }
     }
 }
