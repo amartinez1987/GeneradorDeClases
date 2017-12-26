@@ -39,20 +39,29 @@ namespace GeneradorClases
                     GenerarWebMethod.generarWebMethodAspxDesig(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(),  txtDirectorioDestino.Text, ref error);
                     GenerarWebMethod.generarWebMethodCs(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
                 }
+
+                if (item == "Simple Lista, ascx, Nuevo, Edit")
+                {
+                    GeneradorCrudBoostrap.generarListarAspx(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+                    GeneradorCrudBoostrap.generarListarAspxDesig(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), txtDirectorioDestino.Text, ref error);
+                    GeneradorCrudBoostrap.generarListarMethodCs(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+
+                    GeneradorCrudBoostrap.generarAscx(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+                    GeneradorCrudBoostrap.generarAscxDesig(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), txtDirectorioDestino.Text, ref error);
+                    GeneradorCrudBoostrap.generarAscxCs(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+
+                    GeneradorCrudBoostrap.generarNuevoAspx(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+                    GeneradorCrudBoostrap.generarNuevoAspxDesig(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), txtDirectorioDestino.Text, ref error);
+                    GeneradorCrudBoostrap.generarNuevoAspxCs(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+
+                    GeneradorCrudBoostrap.generarEditarAspx(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+                    GeneradorCrudBoostrap.generarEditarAspxDesig(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), txtDirectorioDestino.Text, ref error);
+                    GeneradorCrudBoostrap.generarEditarAspxCs(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
+                }
+                
             }
 
             MessageBox.Show("Proceso de Generación Completado.");
-        }
-
-        private void btnEstados_Click(object sender, EventArgs e)
-        {
-            foreach (string item in listOpciones.CheckedItems)
-            {
-                if (item == "Simple Boostrap WebMethod")
-                {
-                  
-                }
-            }
         }
 
         private void cmbConecciones_SelectedIndexChanged(object sender, EventArgs e)
