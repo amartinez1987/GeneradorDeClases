@@ -58,8 +58,12 @@ namespace GeneradorClases
                     GeneradorCrudBoostrap.generarEditarAspxDesig(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), txtDirectorioDestino.Text, ref error);
                     GeneradorCrudBoostrap.generarEditarAspxCs(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
                 }
-                
-            }
+
+
+                if (item == "Siple Js")
+                {
+
+                }
 
             MessageBox.Show("Proceso de Generación Completado.");
         }

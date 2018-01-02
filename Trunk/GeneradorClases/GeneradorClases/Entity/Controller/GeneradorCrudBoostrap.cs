@@ -169,7 +169,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add(string.Format("<%@ Control Language=\"C#\" AutoEventWireup=\"true\" CodeBehind=\"frm{0}.ascx.cs\" Inherits=\"{1}.Forms.frm{0}\" %>", nombreTablaAClase, nombreProyecto));
             lineasDocumento.Add("<div class=\"row\">");
             lineasDocumento.Add("<div class=\"col-sm-6\">");
-            lineasDocumento.Add("<div id=\"PanelIDAplicacionesWeb\" hidden=\"hidden\">");
+            lineasDocumento.Add(string.Format("<div id=\"PanelID{0}\" hidden=\"hidden\">",nombreTablaAClase));
             lineasDocumento.Add(string.Format("<label id=\"lblId{0}\">Id</label>", nombreTablaAClase));
             lineasDocumento.Add(string.Format("<input id=\"txtId{0}\" disabled class=\"form-control\" />", nombreTablaAClase));
             lineasDocumento.Add("</div>");
