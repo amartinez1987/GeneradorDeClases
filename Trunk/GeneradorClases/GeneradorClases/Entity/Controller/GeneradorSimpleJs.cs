@@ -10,7 +10,7 @@ namespace GeneradorClases.Entity.Controller
 {
     public class GeneradorSimpleJs
     {
-        public static void generarListarAspx(string nombreProyecto, string nombreEntidad, string nombreTablaAClase, List<DatosColumna> listadoColumnas, string direccionDestino, ref string error)
+        public static void generarSimpleJs(string nombreProyecto, string nombreEntidad, string nombreTablaAClase, List<DatosColumna> listadoColumnas, string direccionDestino, ref string error)
         {
             if (!Directory.Exists(direccionDestino))
             {
@@ -98,15 +98,15 @@ namespace GeneradorClases.Entity.Controller
                     case "money":
                        
                         
-                            lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                            lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         
 
                         break;
                     case "numeric":
-                     
-                        
-                            lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
-                        
+
+
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
+
                         break;
                     case "smallint":
                     case "tinyint":
@@ -120,7 +120,7 @@ namespace GeneradorClases.Entity.Controller
                         }
                         else
                         {
-                            lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                            lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         }
 
                         break;
@@ -129,20 +129,20 @@ namespace GeneradorClases.Entity.Controller
                     case "char":
                     case "nchar":
                     case "varchar":
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         break;
                     case "datetime":
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         break;
                     case "float":
                     case "real":
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         break;
                     case "bigint":
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         break;
                     case "bit":
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         break;
                 }
 
@@ -164,14 +164,14 @@ namespace GeneradorClases.Entity.Controller
                     case "money":
 
 
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
 
 
                         break;
                     case "numeric":
 
 
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
 
                         break;
                     case "smallint":
@@ -187,7 +187,7 @@ namespace GeneradorClases.Entity.Controller
                         }
                         else
                         {
-                            lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                            lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         }
 
                         break;
@@ -196,20 +196,20 @@ namespace GeneradorClases.Entity.Controller
                     case "char":
                     case "nchar":
                     case "varchar":
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         break;
                     case "datetime":
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         break;
                     case "float":
                     case "real":
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         break;
                     case "bigint":
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         break;
                     case "bit":
-                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{0}').val() ;", nombreLowet, item.nombreColumna));
+                        lineasDocumento.Add(string.Format("{0}.{1} = $('#txt{1}{2}').val() ;", nombreLowet, item.nombreColumna, nombreTablaAClase));
                         break;
                 }
 
@@ -220,6 +220,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("}");
             lineasDocumento.Add("");
             lineasDocumento.Add(string.Format("function OnSuccesSave{0}(response)", nombreTablaAClase));
+            lineasDocumento.Add("{");
             lineasDocumento.Add("if ((response.error == null ? \"\" : response.error) != \"\")");
             lineasDocumento.Add("{");
             lineasDocumento.Add("tipoAlerta(response.error, response.tipoAlerta, \"#boxMessagesCrud\");");
@@ -270,13 +271,184 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("return;");
             lineasDocumento.Add("}");
             lineasDocumento.Add("}");
-
             //sigue metodo get listaAplicaciones web
+            lineasDocumento.Add("");
+            lineasDocumento.Add(string.Format("function getLista{0}(registroPartida, totalAExtraer, callbackFucntion)", nombreTablaAClase));
+            lineasDocumento.Add("{");
+            lineasDocumento.Add(string.Format("{0}.registroPartida = registroPartida;",nombreLowet));
+            lineasDocumento.Add(string.Format("{0}.totalAExtraer = totalAExtraer;", nombreLowet));
+            lineasDocumento.Add(string.Format("{0}.usuarioId = getLocalStorageNavegator(\"usuarioId\");", nombreLowet));
+            lineasDocumento.Add(string.Format("var url = \"/WebMethods/{0}.aspx/getLista{1}\";",nombreLowet,nombreTablaAClase));
+            lineasDocumento.Add(string.Format("enviarComoParametros(url, {0}, callbackFucntion);",nombreLowet));
+            lineasDocumento.Add("}");
+            //validarCampos
+            lineasDocumento.Add("function validarCampos()");
+            lineasDocumento.Add("{");
+
+            foreach (DatosColumna item in listadoColumnas)
+            {
+                switch (item.tipoDatoColumna.ToLower())
+                {
+                    case "decimal":
+                    case "money":
+
+                        lineasDocumento.Add("");
+                        lineasDocumento.Add(string.Format("if ($('#txt{1}{0}').val()==0)", nombreTablaAClase, item.nombreColumna));
+                        lineasDocumento.Add("{");
+                        lineasDocumento.Add(string.Format("tipoAlerta('El campo {0} no puede ir vacío.', 'warning', \"#boxMessagesCrud\");", item.nombreColumna));
+                        lineasDocumento.Add("return false;");
+                        lineasDocumento.Add("};");
 
 
+                        break;
+                    case "numeric":
 
 
+                        lineasDocumento.Add("");
+                        lineasDocumento.Add(string.Format("if ($('#txt{1}{0}').val()==0)", nombreTablaAClase, item.nombreColumna));
+                        lineasDocumento.Add("{");
+                        lineasDocumento.Add(string.Format("tipoAlerta('El campo {0} no puede ir vacío.', 'warning', \"#boxMessagesCrud\");", item.nombreColumna));
+                        lineasDocumento.Add("return false;");
+                        lineasDocumento.Add("};");
 
+                        break;
+                    case "smallint":
+                    case "tinyint":
+                    case "int":
+                        if (item.nombreColumna == "id")
+                        {
+                            lineasDocumento.Add("");
+                            lineasDocumento.Add(string.Format("if ($('#txtId{0}').val()==0)", nombreLowet, item.nombreColumna));
+                            lineasDocumento.Add("{");
+                            lineasDocumento.Add(string.Format("tipoAlerta('El campo {0} no puede ir vacío.', 'warning', \"#boxMessagesCrud\");", item.nombreColumna));
+                            lineasDocumento.Add("return false;");
+                            lineasDocumento.Add("};");
+                        }
+                        else if (item.nombreColumna == "usuarioId")
+                        {
+                            
+                        }
+                        else
+                        {
+                            lineasDocumento.Add("");
+                            lineasDocumento.Add(string.Format("if ($('#txt{1}{0}').val()==0)", nombreTablaAClase, item.nombreColumna)); 
+                            lineasDocumento.Add("{");
+                            lineasDocumento.Add(string.Format("tipoAlerta('El campo {0} no puede ir vacío.', 'warning', \"#boxMessagesCrud\");", item.nombreColumna));
+                            lineasDocumento.Add("return false;");
+                            lineasDocumento.Add("};");
+                        }
+
+                        break;
+                    case "ntext":
+                    case "nvarchar":
+                    case "char":
+                    case "nchar":
+                    case "varchar":
+                        lineasDocumento.Add("");
+                        lineasDocumento.Add(string.Format("if ($('#txt{1}{0}').val()==0)", nombreTablaAClase, item.nombreColumna));
+                        lineasDocumento.Add("{");
+                        lineasDocumento.Add(string.Format("tipoAlerta('El campo {0} no puede ir vacío.', 'warning', \"#boxMessagesCrud\");", item.nombreColumna));
+                        lineasDocumento.Add("return false;");
+                        lineasDocumento.Add("};");
+                        break;
+                    case "datetime":
+                        lineasDocumento.Add("");
+                        lineasDocumento.Add(string.Format("if ($('#txt{1}{0}').val()==0)", nombreTablaAClase, item.nombreColumna));
+                        lineasDocumento.Add("{");
+                        lineasDocumento.Add(string.Format("tipoAlerta('El campo {0} no puede ir vacío.', 'warning', \"#boxMessagesCrud\");", item.nombreColumna));
+                        lineasDocumento.Add("return false;");
+                        lineasDocumento.Add("};");
+                        break;
+                    case "float":
+                    case "real":
+                        lineasDocumento.Add("");
+                        lineasDocumento.Add(string.Format("if ($('#txt{1}{0}').val()==0)", nombreTablaAClase, item.nombreColumna));
+                        lineasDocumento.Add("{");
+                        lineasDocumento.Add(string.Format("tipoAlerta('El campo {0} no puede ir vacío.', 'warning', \"#boxMessagesCrud\");", item.nombreColumna));
+                        lineasDocumento.Add("return false;");
+                        lineasDocumento.Add("};");
+                        break;
+                    case "bigint":
+                        lineasDocumento.Add("");
+                        lineasDocumento.Add(string.Format("if ($('#txt{1}{0}').val()==0)", nombreTablaAClase, item.nombreColumna));
+                        lineasDocumento.Add("{");
+                        lineasDocumento.Add(string.Format("tipoAlerta('El campo {0} no puede ir vacío.', 'warning', \"#boxMessagesCrud\");", item.nombreColumna));
+                        lineasDocumento.Add("return false;");
+                        lineasDocumento.Add("};");
+                        break;
+                    case "bit":
+                        lineasDocumento.Add("");
+                        lineasDocumento.Add(string.Format("if ($('#txt{1}{0}').val()==0)", nombreTablaAClase, item.nombreColumna));
+                        lineasDocumento.Add("{");
+                        lineasDocumento.Add(string.Format("tipoAlerta('El campo {0} no puede ir vacío.', 'warning', \"#boxMessagesCrud\");", item.nombreColumna));
+                        lineasDocumento.Add("return false;");
+                        lineasDocumento.Add("};");
+                        break;
+                }
+
+            }
+            lineasDocumento.Add("return true;");
+            lineasDocumento.Add("}");
+            //cargarLista
+            lineasDocumento.Add("");
+            lineasDocumento.Add(string.Format("function cargarLista{0}()",nombreTablaAClase));
+            lineasDocumento.Add("{");
+            lineasDocumento.Add(string.Format("table = $('#gridLista{0}');",nombreTablaAClase));
+            lineasDocumento.Add("");
+            lineasDocumento.Add("if ($.fn.dataTable.isDataTable(table))");
+            lineasDocumento.Add("{");
+            lineasDocumento.Add("table.DataTable();");
+            lineasDocumento.Add("}");
+            lineasDocumento.Add("");
+            lineasDocumento.Add("table.DataTable(");
+            lineasDocumento.Add("{");
+            lineasDocumento.Add("serverSide: true,");
+            lineasDocumento.Add("ordering: false,");
+            lineasDocumento.Add("searching: false,");
+            lineasDocumento.Add("processing: true,");
+            lineasDocumento.Add("destroy:true,");
+            lineasDocumento.Add("language: {");
+            lineasDocumento.Add("\"processing\": \"Actualizando Datos\"");
+            lineasDocumento.Add("},");
+            lineasDocumento.Add("ajax: function (data, callback, settings)");
+            lineasDocumento.Add("{");
+            lineasDocumento.Add("var out = [];");
+            lineasDocumento.Add(string.Format("var lst{0};",nombreTablaAClase));
+            lineasDocumento.Add("var totalRegistros = 0;");
+            lineasDocumento.Add("var totalRegistrosFiltrados = 0;");
+            lineasDocumento.Add("");
+            lineasDocumento.Add(string.Format("getLista{0}(data.start, data.length, function (response)",nombreTablaAClase));
+            lineasDocumento.Add("{");
+            lineasDocumento.Add("if ((response.error == null ? \"\" : response.error) != \"\")");
+            lineasDocumento.Add("{");
+            lineasDocumento.Add("tipoAlerta(response.error, response.tipoAlerta, \"#boxMessages\");");
+            lineasDocumento.Add("return;");
+            lineasDocumento.Add("}");
+            lineasDocumento.Add("");
+            lineasDocumento.Add("if (response.error == '')");
+            lineasDocumento.Add("{");
+            lineasDocumento.Add(string.Format("lst{0} = eval(\"(\" + response.getCadena + \")\");",nombreTablaAClase));
+            lineasDocumento.Add("totalRegistros = response.totalRegistros;");
+            lineasDocumento.Add("totalRegistrosFiltrados = response.totalRegistrosFiltrados;");
+            lineasDocumento.Add(string.Format("for (var i = 0; i < lst{0}.length; i++)",nombreTablaAClase));
+            lineasDocumento.Add("{");
+            lineasDocumento.Add(string.Format("var etiquetaEditar = \"<a onclick='btn{0}_Editar(\" + lst{0}[i].id + \")'  class='fa fa-edit'><a>\";",nombreTablaAClase));
+            lineasDocumento.Add(string.Format("var etiquetaEliminar = \" <a class='fa fa-minus' onclick='btn{0}_Eliminar(\" + lst{0}[i].id + \")'><a>\";", nombreTablaAClase));
+            lineasDocumento.Add(string.Format("out.push([etiquetaEditar + etiquetaEliminar, lst{0}[i].nombre, lst{0}[i].descripcion]);",nombreTablaAClase));
+            lineasDocumento.Add("}");
+            lineasDocumento.Add("");
+            lineasDocumento.Add("setTimeout(callback(");
+            lineasDocumento.Add("{");
+            lineasDocumento.Add("draw: data.draw,");
+            lineasDocumento.Add("data: out,");
+            lineasDocumento.Add("recordsTotal: totalRegistros,");
+            lineasDocumento.Add("recordsFiltered: totalRegistros");
+            lineasDocumento.Add("}), 50);");
+            lineasDocumento.Add("}");
+            lineasDocumento.Add("});");
+            lineasDocumento.Add("}");
+            lineasDocumento.Add("});");
+            lineasDocumento.Add("}");
 
 
 
@@ -284,7 +456,7 @@ namespace GeneradorClases.Entity.Controller
             {
                 System.IO.Directory.CreateDirectory(directorioModelo);
             }
-            File.WriteAllLines(directorioModelo + "\\" + nombreTablaAClase + ".aspx", lineasDocumento);
+            File.WriteAllLines(directorioModelo + "\\" + nombreTablaAClase + ".js", lineasDocumento);
         }
 
         private static string getNombreClaseController(string nombreTablasAClase)

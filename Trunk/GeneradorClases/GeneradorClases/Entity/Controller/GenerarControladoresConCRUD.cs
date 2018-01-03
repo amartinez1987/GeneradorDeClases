@@ -74,7 +74,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("{");
             lineasDocumento.Add("if (existeRegistro(registro.id))");
             lineasDocumento.Add("{");
-            lineasDocumento.Add(string.Format("result = ValidateSession.validarOperacionesForm(\"{0}\", \"Nuevo\", registro.usuarioId);", nombreTablaAClase));
+            lineasDocumento.Add(string.Format("result = ValidateSession.validarOperacionesForm(\"{0}\", \"Editar\", registro.usuarioId);", nombreTablaAClase));
             lineasDocumento.Add("if (result.error != null && result.error != \"\")");
             lineasDocumento.Add("{");
             lineasDocumento.Add("return result;");
@@ -94,7 +94,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("}");
             lineasDocumento.Add("else");
             lineasDocumento.Add("{");
-            lineasDocumento.Add(string.Format("result = ValidateSession.validarOperacionesForm(\"{0}\", \"Editar\", registro.usuarioId);", nombreTablaAClase));
+            lineasDocumento.Add(string.Format("result = ValidateSession.validarOperacionesForm(\"{0}\", \"Nuevo\", registro.usuarioId);", nombreTablaAClase));
             lineasDocumento.Add("if (result.error != null && result.error != \"\")");
             lineasDocumento.Add("{");
             lineasDocumento.Add("return result;");

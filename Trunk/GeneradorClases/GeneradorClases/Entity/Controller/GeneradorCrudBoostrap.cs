@@ -336,7 +336,7 @@ namespace GeneradorClases.Entity.Controller
             lineasDocumento.Add("");
             lineasDocumento.Add(string.Format("namespace {0}.Forms", nombreProyecto));
             lineasDocumento.Add("{");
-            lineasDocumento.Add(string.Format("public partial class frm{0} : System.Web.UI.Page", nombreTablaAClase));
+            lineasDocumento.Add(string.Format("public partial class frm{0} : System.Web.UI.UserControl", nombreTablaAClase));
             lineasDocumento.Add("{");
             lineasDocumento.Add("protected void Page_Load(object sender, EventArgs e)");
             lineasDocumento.Add("{");

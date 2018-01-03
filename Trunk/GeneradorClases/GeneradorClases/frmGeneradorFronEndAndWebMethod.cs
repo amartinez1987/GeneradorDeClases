@@ -36,7 +36,7 @@ namespace GeneradorClases
                 if (item == "Simple Boostrap WebMethod")
                 {
                     GenerarWebMethod.generarWebMethodAspx(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), txtDirectorioDestino.Text, ref error);
-                    GenerarWebMethod.generarWebMethodAspxDesig(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(),  txtDirectorioDestino.Text, ref error);
+                    GenerarWebMethod.generarWebMethodAspxDesig(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), txtDirectorioDestino.Text, ref error);
                     GenerarWebMethod.generarWebMethodCs(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
                 }
 
@@ -62,8 +62,9 @@ namespace GeneradorClases
 
                 if (item == "Siple Js")
                 {
-
+                    GeneradorSimpleJs.generarSimpleJs(txtNombreProyeco.Text, txtNombreEntidad.Text, cmbTabla.SelectedItem.ToString(), (dtColumnas.DataSource as List<DatosColumna>), txtDirectorioDestino.Text, ref error);
                 }
+            }
 
             MessageBox.Show("Proceso de Generación Completado.");
         }
@@ -94,7 +95,7 @@ namespace GeneradorClases
         }
 
         private void btnOperacionesPatronState_Click(object sender, EventArgs e)
-        {           
+        {
         }
         private void frmGeneradorFronEndAndWebMethod_Load(object sender, EventArgs e)
         {
