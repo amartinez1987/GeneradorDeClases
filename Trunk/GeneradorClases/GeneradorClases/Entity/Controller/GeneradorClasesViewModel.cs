@@ -23,8 +23,7 @@ namespace GeneradorClases.Entity.Controller
             List<string> lineasDocumento = new List<string>();
 
             lineasDocumento.Add("using System;");
-            lineasDocumento.Add("using System.Collections.Generic;");
-            lineasDocumento.Add("using System.Linq;");
+            lineasDocumento.Add("using System.Collections.Generic;");            
             lineasDocumento.Add("using System.Linq;");
             lineasDocumento.Add("using System.Text;");
             lineasDocumento.Add("using System.Threading.Tasks;");
